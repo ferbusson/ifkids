@@ -6,7 +6,8 @@
 	foo.fecha,
 	SUM(COALESCE(inv.entrada,0))-SUM(COALESCE(inv.salida,0)) AS disponible,
 	pventa1,
-	pventa2
+	pventa2,
+	trm
 FROM
 	(SELECT
 		p.id_prod_serv,
@@ -16,9 +17,12 @@ FROM
 		current_timestamp as fecha,
 		100,
 		pventa1,
-		pventa2
+		pventa2,
+		trm.trm
 	FROM 
 		prod_serv p,
+		(SELECT MAX(id_trm) AS id_trm FROM trm) AS foo_trm,
+		trm,
 		item i,
 		items_tmp3 it,
 		colores c,
@@ -27,6 +31,7 @@ FROM
 		(select id_prod_serv,pventa as pventa1 from pventa where id_catalogo=1) as p1,
 		(select id_prod_serv,pventa as pventa2 from pventa where id_catalogo=2) as p2		
 	 WHERE 
+		foo_trm.id_trm = trm.id_trm AND
 		it.referencia=i.id_item AND
 		pv.id_prod_serv=p.id_prod_serv AND
 		p.id_color=c.id_color AND
@@ -48,4 +53,5 @@ GROUP BY
 	foo.iva,
 	foo.fecha,
 	pventa1,
-	pventa2;
+	pventa2,
+	trm;
