@@ -6,5 +6,6 @@
 		cheque,
 		consignacion,
 		cambio,
-		valor) 
-VALUES('?','?','?','?','?','?','?');
+		valor,
+		trm) 
+VALUES('?','?','?','?','?','?','?','?');

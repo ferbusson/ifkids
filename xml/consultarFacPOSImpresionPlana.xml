@@ -647,7 +647,7 @@
           <name>PRINT</name>
           <action>
             <type>printer</type>
-            <printerTemplate>/graphics/TSFacturaPosMulti.xml</printerTemplate>
+            <printerTemplate>/plains/TSFacturaPost.xml</printerTemplate>
             <component>
               <driver>gfforma</driver>
               <method>setVisible</method>
@@ -655,156 +655,150 @@
                 <arg>false</arg>
               </parameters>
             </component>
-            1<!-- Numero Fac -->
+            <!-- Codigo Barras -->
             <component>
               <driver id="nro_fact">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            2<!--Hora-->
-            <component>
-              <driver id="hora">common.gui.components.GenericData</driver>
-              <method>getPrintPackage</method>
-            </component>
-            2<!--Res fact desde-->
-            <component>
-              <driver id="desde_res_fact">client.gui.components.TableDataFields</driver>
-              <method>getPrintPackage</method>
-            </component>
-            
-
-            4<!-- Fecha de factura -->
+            <!-- Fecha de factura -->
             <component>
               <driver id="fecha">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            5<!-- Cajero -->
+            <!-- Cajero -->
             <component>
               <driver id="Vendedor">client.gui.components.XMLComboBox</driver>
               <method>getPrintPackage</method>
             </component>
-            
-            6<!-- Tabla Principal de productos -->
+            <component>
+              <driver id="hora">common.gui.components.GenericData</driver>
+              <method>getPrintPackage</method>
+            </component>
+            <!-- Tabla Principal de productos -->
             <component>
               <driver>client.gui.components.TableFindData</driver>
               <method>getPrintPackage</method>
             </component>
-            7
+            <!-- Paquete Blanco linea -->
             <component>
-            <driver id="oingresos">common.gui.components.GenericData</driver>
+              <driver id="date">common.gui.components.GenericData</driver>
+              <method>getBlankPackage</method>
+            </component>
+            <!-- Total -->
+            <component>
+              <driver id="totalp">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            8<!-- Efectivo -->
+            <!--<component>
+              <driver id="desc">client.gui.components.TableDataFields</driver>
+              <method>getPrintPackage</method>
+              </component>
+            -->
+            <!-- Efectivo -->
             <component>
               <driver id="fefectivo">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
-            </component>                                    
-            9<!-- Total tarjetas credito -->
+            </component>
+            <!-- Total tarjetas credito -->
             <component>
               <driver id="tcreditcard">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            10<!-- Total cuentas por cobrar creditos-->
+            <!-- Total cuentas por cobrar creditos-->
             <component>
               <driver id="ctaxcobrar">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            11<!-- Cambio -->
+            <!-- Cambio -->
             <component>
               <driver id="cambio">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            12<!-- Paquete Blanco linea -->
+            <!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            13<!-- Paquete Blanco Titulo -->
+            <!-- Paquete Blanco Titulo -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            14<!-- Base de impuesto -->
+            <!-- Base de impuesto -->
             <component>
               <driver id="totalValues">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            15<!-- Iva -->
+            <!-- Iva -->
             <component>
               <driver id="tiva">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            16<!-- Paquete Blanco linea -->
+            <!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            17<!-- Total articulos -->
+            <!-- Total articulos -->
             <component>
               <driver id="cantidades">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            18<!-- Paquete Blanco linea -->
+            <!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            19<!-- Tercero -->
+            <!-- Tercero -->
             <component>
               <driver id="tercero">common.gui.components.XMLTextArea</driver>
               <method>getPrintPackage</method>
             </component>
-            20<!-- Dias de credito -->
+            <!-- Dias de credito -->
             <component>
               <driver id="credit">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            21<!-- Vencimiento -->
+            <!-- Vencimiento -->
             <component>
               <driver id="vencimiento">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            22<!-- Paquete Blanco linea -->
+            <!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            23<!-- TRM -->
-            <component>
-              <driver id="trm">client.gui.components.TableDataFields</driver>
-              <method>getPrintPackage</method>
-            </component>
-            24<!-- Total US$ -->
-            <component>
-              <driver id="totalpus">client.gui.components.TableDataFields</driver>
-              <method>getPrintPackage</method>
-            </component>
-            25<!-- Paquete Blanco linea -->
-            <component>
-              <driver id="date">common.gui.components.GenericData</driver>
-              <method>getBlankPackage</method>
-            </component>
-            26<!-- Resolucion de facturacion -->
+  
+            <!-- Resolucion de facturacion -->
             <component>
               <driver id="num_res_fact">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            27
             <component>
               <driver id="hasta_res_fact">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            28
             <component>
               <driver id="fecha_res_fact">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
 
 
-            29<!-- Paquete Blanco pie de pagina -->
+            <!-- Paquete Blanco Resoulcion y pie de pagina -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
+            <!--             
+              <component>
+              <driver>client.gui.components.FindThird</driver>
+              <method>getPrintPackage</method>
+              </component>
+              <component>
+              <driver id="observaciones">common.gui.components.XMLTextArea</driver>
+              <method>getPrintPackage</method>
+              </component> -->
           </action>
         </object>
         <object>
@@ -841,26 +835,6 @@
     <branchCity>ciudad</branchCity>
 
   </preferences>
-
-<component locate="East">
-              <driver id="totalus">client.gui.components.TableDataFields</driver>
-              <parameters>
-                <arg attribute="Panel">false</arg>
-                <subarg>
-                  <arg attribute="label">Total US$</arg>
-                  <arg attribute="font">Dialog,1,30</arg>
-                  <arg attribute="format">NUMERIC</arg>
-                  <arg attribute="size">7</arg>
-                  <arg attribute="maxlength">20</arg>
-                  <arg attribute="clean">true</arg>
-                  <arg attribute="enabled">false</arg>
-                  <arg attribute="alignment">RIGHT</arg>
-                  <arg attribute="format">NUMERIC</arg>
-                  <arg attribute="exportValue">totalfactus</arg>
-                  <arg attribute="calculateExportValue">totalfact/trm</arg>
-                </subarg>
-              </parameters>
-            </component>
 
   <component>
     <driver id="num_res_fact">client.gui.components.TableDataFields</driver>
@@ -1073,7 +1047,7 @@
           </component>
         </panel>
         <panel locate="East" type="BorderLayout">
-          <panel locate="West" type="GridLayout" rows="3" cols="1">
+          <panel locate="West" type="GridLayout" rows="2" cols="1">
             <component locate="North">
               <driver>common.gui.components.XMLLabel</driver>
               <parameters>
@@ -1090,16 +1064,8 @@
                 <arg attribute="font">Dialog,1,30</arg>
               </parameters>
             </component>
-            <component locate="North">
-              <driver>common.gui.components.XMLLabel</driver>
-              <parameters>
-                <arg attribute="text">TRM</arg>
-                <arg attribute="alignment">0</arg>
-                <arg attribute="font">Dialog,1,30</arg>
-              </parameters>
-            </component>
           </panel>
-          <panel locate="Center" type="GridLayout" rows="3" cols="1">
+          <panel locate="Center" type="GridLayout" rows="2" cols="1">
             <component>
               <driver id="nro_fact">client.gui.components.TableDataFields</driver>
               <parameters>
@@ -1133,7 +1099,6 @@
                   <arg attribute="sqlCode">RFSEL016</arg>
                   <arg attribute="sqlCode">MDSEL0001</arg>
                   <arg attribute="sqlCode">MDSEL0002</arg>
-                  <arg attribute="sqlCode">MTSEL0708</arg>
                 </subarg>
               </parameters>
             </component>
@@ -1156,26 +1121,6 @@
                 </subarg>
               </parameters>
             </component>
-            <component locate="Center">
-              <driver id="trm">client.gui.components.TableDataFields</driver>
-              <parameters>
-                <arg attribute="keySQL">MTSEL0708</arg>
-                <arg attribute="driverEvent" id="nro_fact">client.gui.components.TableDataFields</arg>
-                <arg attribute="Panel">false</arg>
-                <subarg>
-                  <arg attribute="label">TRM $   </arg>
-                  <arg attribute="format">NUMERIC</arg>
-                  <arg attribute="size">5</arg>
-                  <arg attribute="maxlength">10</arg>
-                  <arg attribute="enabled">false</arg>
-                  <arg attribute="clean">false</arg>
-                  <arg attribute="font">Dialog,1,30</arg>
-                  <arg attribute="exportValue">trm</arg>
-                  <arg attribute="alignment">RIGHT</arg>
-                  <arg attribute="printable">true</arg>
-                </subarg>
-              </parameters>
-            </component>            
           </panel>
         </panel>
       </panel>
@@ -1406,7 +1351,7 @@
         <arg attribute="singleSendRecord">1," ",2," x $",3," - dcto $",7," Total = $",10</arg>
         <arg attribute="keySQL">DGSEL0012</arg>
         <arg attribute="driverEvent" id="nro_fact">client.gui.components.TableDataFields</arg>
-        <subarg>0a
+        <subarg>
           <arg attribute="name">CODE</arg>
           <arg attribute="length">135</arg>
           <arg attribute="type">DATASEARCH</arg>
@@ -1420,7 +1365,7 @@
           <arg attribute="printable">true</arg>
           <arg attribute="exportValue">nomprod</arg>
         </subarg>
-        <subarg>1b
+        <subarg>
           <arg attribute="name">DESCRIPCION</arg>
           <arg attribute="length">310</arg>
           <arg attribute="type">STRING</arg>
@@ -1428,7 +1373,7 @@
           <arg attribute="queryCol">1</arg>
           <arg attribute="printable">true</arg>
         </subarg>
-        <subarg>2c
+        <subarg>
           <arg attribute="name">CANTIDAD</arg>
           <arg attribute="length">80</arg>
           <arg attribute="type">INTEGER</arg>
@@ -1439,7 +1384,7 @@
           <arg attribute="nameField">cantidad</arg>
           <arg attribute="printable">true</arg>
         </subarg>
-        <subarg>3d
+        <subarg>
           <arg attribute="name">VUNITARIO</arg>
           <arg attribute="length">100</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1449,7 +1394,7 @@
           <arg attribute="returnCol">2</arg>
           <arg attribute="printable">true</arg>
         </subarg>
-        <subarg>4e
+        <subarg>
           <arg attribute="name">PIVA</arg>
           <arg attribute="length">70</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1458,7 +1403,7 @@
           <arg attribute="queryCol">3</arg>
           <arg attribute="returnCol">3</arg>
         </subarg>
-        <subarg>5f
+        <subarg>
           <arg attribute="name">PDCTO</arg>
           <arg attribute="length">70</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1466,7 +1411,7 @@
           <arg attribute="enabled">false</arg>
           <arg attribute="returnCol">4</arg>
         </subarg>
-        <subarg>6g
+        <subarg>
           <arg attribute="name">STOTAL</arg>
           <arg attribute="length">0</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1474,14 +1419,14 @@
           <arg attribute="enabled">false</arg>
           <arg attribute="returnCol">7</arg>
         </subarg>
-        <subarg>7h
+        <subarg>
           <arg attribute="name">Desc</arg>
           <arg attribute="length">90</arg>
           <arg attribute="type">DECIMAL</arg>
           <arg attribute="roundDecimal">0</arg>
           <arg attribute="enabled">false</arg>
         </subarg>
-        <subarg>8i
+        <subarg>
           <arg attribute="name">NETO</arg>
           <arg attribute="length">0</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1489,7 +1434,7 @@
           <arg attribute="enabled">false</arg>
           <arg attribute="returnCol">6</arg>
         </subarg>
-        <subarg>9j
+        <subarg>
           <arg attribute="name">TIVA</arg>
           <arg attribute="length">0</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1498,7 +1443,7 @@
           <arg attribute="returnCol">5</arg>
           <!--  <arg attribute="printable">true</arg> -->
         </subarg>
-        <subarg>10k
+        <subarg>
           <arg attribute="name">TOTAL</arg>
           <arg attribute="length">130</arg>
           <arg attribute="type">DECIMAL</arg>
@@ -1507,7 +1452,7 @@
           <arg attribute="enabled">false</arg>
           <arg attribute="returnCol">8</arg>
         </subarg>
-        <subarg>11l
+        <subarg>
           <arg attribute="name">ID</arg>
           <arg attribute="length">0</arg>
           <arg attribute="type">STRING</arg>
@@ -1516,29 +1461,6 @@
           <arg attribute="returnCol">0</arg>
           <arg attribute="nameField">idProducto</arg>
         </subarg>
-        <subarg>12m
-            <arg attribute="name">TAG</arg>
-            <arg attribute="length">0</arg>
-            <arg attribute="type">STRING</arg>
-            <arg attribute="clean">true</arg>
-            <arg attribute="enabled">false</arg>
-            <arg attribute="queryCol">4</arg>
-          </subarg>
-          <subarg>13n
-            <arg attribute="name">TRM</arg>
-            <arg attribute="length">162</arg>
-            <arg attribute="type">DECIMAL</arg>
-            <arg attribute="roundDecimal">0</arg>
-            <arg attribute="enabled">false</arg>
-          </subarg>
-          <subarg>14o
-            <arg attribute="name">USDTOTAL</arg>
-            <arg attribute="length">162</arg>
-            <arg attribute="type">DECIMAL</arg>
-            <arg attribute="roundDecimal">0</arg>
-            <arg attribute="enabled">false</arg>
-            <arg attribute="printable">true</arg>
-          </subarg>
       </parameters>
     </component>
   </panel>

@@ -900,6 +900,7 @@
                   <arg attribute="importValue">tconsignation</arg>
                   <arg attribute="importValue">cambio</arg>
                   <arg attribute="importValue">totalfact</arg>
+                  <arg attribute="importValue">trm</arg>
                 </subarg>
               </parameters>
             </component>
