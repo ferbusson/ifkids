@@ -10,25 +10,29 @@
 
 <emaku_template type="POSTSCRIPT" requestNumeration="false" copies="1" silent="false" printer="Deskjet_3900">
    <settings width="220" height="10000" />
-   <metadata>
-      <font row="0" col="0" name="Sans" size="12" />
-      <field row="40" col="10" type="STRING" importValue="true">nombre_suc</field>
-      <font row="0" col="0" name="Sans" size="8" />
-      <field row="50" col="15" type="STRING">Factura de Venta</field>
-      <field row="60" col="15" type="STRING">Numero:</field>
 
-      <field row="70" col="15" type="STRING">Fecha:</field>
-      <field row="80" col="15" type="STRING">Cajero:</field>
-      <field row="90" col="15" type="STRING">Hora:</field>
+   <metadata>
+      <font row="0" col="0" name="Sans" size="10" />
+      <field row="90" center="70" type="STRING" importValue="true">nombre_suc</field>
+      <font row="0" col="0" name="Sans" size="7" />
+      <field row="100" center="190" type="STRING">NIT: 1016032169-2 REGIMEN COMUN</field>
+      
+      <font row="0" col="0" name="Sans" size="8" />
+      <field row="200" col="15" type="STRING">Factura de Venta</field>
+      <field row="210" col="15" type="STRING">Numero:</field>
+
+      <field row="220" col="15" type="STRING">Fecha:</field>
+      <field row="230" col="15" type="STRING">Cajero:</field>
+      <field row="240" col="15" type="STRING">Hora:</field>
       <!-- Informacion detallada de productos -->
-      <line row="100" col="2" row2="100" col2="190" />
-      <field row="110" col="13" type="STRING">Código</field>
-      <field row="120" col="60" type="STRING">Descripcion</field>
-      <field row="130" col="10" type="STRING">Cant</field>
-      <field row="130" col="60" type="STRING">V. Unit</field>
-      <field row="130" col="130" type="STRING">Total</field>
-      <field row="130" col="170" type="STRING">T. USD</field>
-      <line row="140" col="2" row2="140" col2="200" />
+      <line row="250" col="2" row2="250" col2="190" />
+      <field row="260" col="13" type="STRING">Código</field>
+      <field row="270" col="60" type="STRING">Descripcion</field>
+      <field row="280" col="10" type="STRING">Cant</field>
+      <field row="280" col="60" type="STRING">V. Unit</field>
+      <field row="280" col="130" type="STRING">Total</field>
+      <field row="280" col="170" type="STRING">T. USD</field>
+      <line row="290" col="2" row2="290" col2="200" />
    </metadata>
 
 
@@ -36,31 +40,35 @@
        <!-- <package>
       <dbimage row="190" width = "150" height= "80"  col="15" type="STRING" />
         </package>-->
+  1
+  <package>
+          <generateBarCodeImage row="110" col="20" width="10" type="NUMERIC" mask="0000000000" />
+  </package>
 
 	0<!--Numero fac-->
 	 <package>
-        <field row="60" col="130" width="10" type="NUMERIC" mask="0000000000" />
+        <field row="210" col="130" width="10" type="NUMERIC" mask="0000000000" />
         </package>
 	1<!--Hora-->
 	<package>
-                <field row="90" col="45" type="STRING" />
-        </package>
+          <field row="240" col="45" type="STRING" />
+  </package>
 
   2
    <package>
-      <field row="60" col="53" type="STRING" />
+      <field row="210" col="53" type="STRING" />
    </package>
    3
    <package>
-      <field row="70" col="53" type="DATE" mask="EEEEEE dd MMMM yyyy" />
+      <field row="220" col="53" type="DATE" mask="EEEEEE dd MMMM yyyy" />
    </package>
    4
    <package>
-      <field row="80" col="53" type="STRING" />
+      <field row="230" col="53" type="STRING" />
    </package>
    5
    <package>
-      <subpackage rowInit="150" rowAcum="10">
+      <subpackage rowInit="300" rowAcum="10">
          <field col="15" type="STRING" incrementRow="true" />
          <field col="15" incrementRow="true" type="STRING" />
          <field col="15" width="3" type="NUMERIC" mask="###" />
@@ -159,46 +167,40 @@
    </package>  
    27
    <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="15" textCol="5" col="15" type="STRING" />
+                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="10" textCol="5" col="15" type="STRING" />
         </package>
     28
         <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" textLine="NUM. AUTORIZADA:" rowAcum="15" textCol="15" col="90" type="STRING" />
+                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" textLine="NUM. AUTORIZADA:" rowAcum="10" textCol="15" col="90" type="STRING" />
         </package>
     29
         <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="15" textCol="5" col="15" type="STRING" />
+                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="10" textCol="5" col="15" type="STRING" />
         </package>
 
     30
    <package>
-      <text fontName="Dialog" fontSize="7" fontStyle="0"  rowAcum="10" row="last" col="15" type="STRING">NO SE ACEPTA CAMBIOS DE</text>
-      <text rowAcum="10" row="last" col="15" type="STRING">MERCANCIA DE PROMOCION</text>
-                <!--<text rowAcum="10" row="last" col="15" type="STRING">EL PLAZO MAXIMO PARA CAMBIO</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">DE MERCANCIA ES DE 3O DIAS</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">Y POR RECLAMO FRENTE A CALIDAD</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">EN PRENDAS DE 60 DIAS, EL CALZADO</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">POR FALLASi DE FABRICACION TIENE</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">3O DIAS DE GARANTIA, PARA EQUIPOS</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">CELULARES EL TIEMPO DE GARANTIA</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">ES DE (3) MESES, CONDICIONES: CAJA</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">ORIGINAL, ACCESORIOS Y FACTURA. </text>
-                <text rowAcum="10" row="last" col="15" type="STRING">SIN NINGUNA DE ESTAS TRES COSAS</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">ES IMPOSIBLE RESPONDER POR EL</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">EQIUPO. RESPUESTA EN (15) DIAS HABILES.</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">PARA CUALQUIER TIPO DE RECLAMO DEBE</text>
-                <text rowAcum="10" row="last" col="15" type="STRING">PRESENTAR ESTA FACTURA.</text>-->
-      <text rowAcum="10" row="last" col="15" type="STRING">IN FASHION KIDS</text>
-      <text rowAcum="10" row="last" col="15" type="STRING">NIT: 1016032169-2</text>
-      <text rowAcum="10" row="last" col="15" type="STRING">REGIMEN COMUN</text>
+      <!--Campos de texto originalmente traidos de MT-->
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">No se aceptan cambios de mercancía en promoción.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Plazo máximo para cambio de mercancía 15 días.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Plazo máximo por reclamo frente a calidad 8 días.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">En ningún caso hay devolución de dinero.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Todo cambio se realiza siempre y cuando la prenda</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">este en perfecto estado y con su etiqueta.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">La mercancía separada no tiene cambios.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">No se aceptan retiros parciales en separados.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Para cualquier reclamación es necesario</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="15" row="last" col="6" type="STRING">presentar este documento.</text>
+
+
       <text rowAcum="10" row="last" col="15" type="STRING" importValue="true">direccion</text>
       <text rowAcum="10" row="last" col="15" type="STRING">davila-1234@hotmail.com</text>
       <text rowAcum="20" row="last" col="15" type="STRING" importValue="true">ciudad</text>
 
       
       <text fontName="Dialog" fontSize="14" fontStyle="1" rowAcum="30" row="last" col="12" type="STRING">GRACIAS POR SU COMPRA</text>
-       <text fontName="Dialog" fontSize="7" fontStyle="1" rowAcum="10" row="last" col="12" type="STRING">Factura Elaborada Con E-Maku</text>
-                <text fontName="Dialog" fontSize="7" fontStyle="1" rowAcum="30" row="last" col="12" type="STRING">Licenciado Bajo GPL V 2.0</text>
+      <text fontName="Dialog" fontSize="6" fontStyle="1" rowAcum="8" row="last" col="12" type="STRING">Factura Elaborada Con E-Maku</text>
+      <text fontName="Dialog" fontSize="6" fontStyle="1" rowAcum="30" row="last" col="12" type="STRING">Licenciado Bajo GPL V 2.0</text>
    </package>
 
 </emaku_template>

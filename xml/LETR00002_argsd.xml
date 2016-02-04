@@ -1,0 +1,134 @@
+<container>
+  <!--  
+    Este modelo es para logica de negocios de un documento.
+  -->
+  <!--
+    El primer paquete de subargumentos contiene informacion
+    especifica para crear un documento. 
+  -->
+  <subarg>
+    <!-- <arg attribute="idDocument">SP</arg> -->
+    <arg attribute="consecutive" />
+    <arg attribute="date" />
+    <arg attribute="actionDocument">createDocument</arg>
+    <arg attribute="cash" />
+  </subarg>
+  <!--
+    La logica para el almacenamiento de documentos una vez creado el
+    primer paquete de subargumentos es la siguiente:
+    
+    Para procesar un paquete proveniente de una transaccion en el
+    lado de argumentos debe existir un argumento con una consulta sql, o un
+    paquete LNData, con us respectiva parametrizacion, si un paquete va a
+    ser procesado varias veces por diferentes sentencias o diferentes componentes
+    de logica de negocios, estos deben estar agrupados por una etiquete de
+    subargumentos.
+  -->
+  <!--  La siguiente sentencia actualiza un registro  -->
+  0
+  <arg>UPD0023</arg>
+  1
+  <arg>INS0079</arg>
+  2
+  <arg>DCINS0002</arg>
+  3
+  <arg>DCINS0003</arg>
+  4
+  <arg>DCINS0004</arg>
+  <!--  Tarjeta Credito.-->
+  5
+  <arg>MTINS0020</arg>
+
+  <!--6-->
+  <!--  centrocosto -->
+  <arg attribute="addKey"/>
+
+
+  <!--  A continuacion se encuentra un argumento que sera procesado
+    por un componete de logica de negocios.
+  -->
+  7
+  <LNData>
+    <driver>LNContabilidad</driver>
+    <method>fieldData</method>
+    <parameters>
+      <arg attribute="debuging">true</arg>
+      <arg attribute="CodeAPS">9</arg>
+      <arg attribute="Concepto">Venta segun factura de contado</arg>
+      <arg attribute="centrocosto">getName</arg>
+      <subarg>
+        <arg attribute="accountField">11050501,D</arg>
+      </subarg>
+    </parameters>
+  </LNData>
+  8
+  <arg attribute="addKey" />
+  9
+  <LNData>
+    <driver>LNContabilidad</driver>
+    <method>fieldData</method>
+    <parameters>
+      <arg attribute="debuging">true</arg>
+      <arg attribute="CodeAPS">9</arg>
+      <arg attribute="Concepto">Venta segun factura de contado</arg>
+      <arg attribute="centrocosto">getName</arg>
+      <subarg>
+        <arg attribute="accountField">111005,D</arg>
+      </subarg>
+    </parameters>
+  </LNData>
+  10
+  <arg attribute="removeKey">idTercero</arg>
+  11
+  <arg attribute="addKey" />
+
+  <!--  Fin Tarjeta Credito.-->
+
+  <!--  El paquete proveniente de una transaccion sera procesado dos
+    veces. la primera vez por la sentencia sql INS0045 y la segunda vez
+    por un componente de logica de negocios.
+  -->
+  12
+  <arg>DCINS0005</arg>
+  13
+  <subarg>
+    <arg>PSINS0004</arg>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Concepto">Anticipo Separado</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">238005,C</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+  14a
+  <arg attribute="removeKey">idTercero</arg>
+  14b
+  <arg attribute="removeKey">centrocosto</arg>
+  15
+  <arg attribute="addKey" />
+  16
+  <arg attribute="addKey" />
+  17
+  <subarg>
+    <LNData>
+      <driver>LNSelectedField</driver>
+      <method>getFields</method>
+      <parameters>
+        <arg attribute="sql">INS0031</arg>
+        <arg attribute="fields">0,1,2,3,4</arg>
+        <arg attribute="discartKey">bodegaSaliente</arg>
+        <arg attribute="discartKey">centrocosto</arg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNInventarios</driver>
+      <method>traslados</method>
+    </LNData>
+  </subarg>
+</container>

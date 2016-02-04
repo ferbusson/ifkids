@@ -4,34 +4,29 @@
 	foo.pventa,
 	foo.iva,
 	foo.fecha,
-	SUM(COALESCE(inv.entrada,0))-SUM(COALESCE(inv.salida,0)) AS disponible,
-	pventa1,
-	pventa2,
-	trm
+	fsaldo.saldo,
+	foo.pventa1,
+	foo.pventa2
 FROM
-	(SELECT
+	(SELECT 
 		p.id_prod_serv,
-		it.nombre||' '||t.talla as nombre,
+		it.nombre||' '||t.talla AS nombre,
 		pv.pventa,
 		p.iva,
 		current_timestamp as fecha,
-		100,
 		pventa1,
-		pventa2,
-		trm.trm
+		pventa2
 	FROM 
 		prod_serv p,
-		(SELECT MAX(id_trm) AS id_trm FROM trm) AS foo_trm,
-		trm,
 		item i,
 		items_tmp3 it,
 		colores c,
 		tallas t,
 		pventa pv,
 		(select id_prod_serv,pventa as pventa1 from pventa where id_catalogo=1) as p1,
-		(select id_prod_serv,pventa as pventa2 from pventa where id_catalogo=2) as p2		
+		(select id_prod_serv,pventa as pventa2 from pventa where id_catalogo=2) as p2
+			
 	 WHERE 
-		foo_trm.id_trm = trm.id_trm AND
 		it.referencia=i.id_item AND
 		pv.id_prod_serv=p.id_prod_serv AND
 		p.id_color=c.id_color AND
@@ -40,18 +35,17 @@ FROM
 		p.id_prod_serv=p1.id_prod_serv AND
 		p.id_prod_serv=p2.id_prod_serv AND
 		p.codigo='?' AND
-		pv.id_catalogo= '?') as foo
-LEFT OUTER JOIN
-	inventarios inv
+		pv.id_catalogo='?'
+) AS foo
+LEFT OUTER JOIN 
+	(SELECT
+		id_prod_serv,
+		SUM(COALESCE(entrada,0))-SUM(COALESCE(salida,0)) AS saldo
+	FROM
+		inventarios
+	WHERE
+		id_bodega = '?'
+	GROUP BY
+		id_prod_serv) AS fsaldo
 ON
-	inv.id_prod_serv = foo.id_prod_serv AND
-	inv.id_bodega = '?'
-GROUP BY 
-	foo.id_prod_serv,
-	foo.nombre,
-	foo.pventa,
-	foo.iva,
-	foo.fecha,
-	pventa1,
-	pventa2,
-	trm;
+	foo.id_prod_serv = fsaldo.id_prod_serv
