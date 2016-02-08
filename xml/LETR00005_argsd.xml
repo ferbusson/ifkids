@@ -1,0 +1,71 @@
+<container>
+  <subarg>
+    <!-- <arg attribute="idDocument">AR</arg> -->
+    <arg attribute="consecutive" />
+    <arg attribute="date" />
+    <arg attribute="actionDocument">createDocument</arg>
+    <arg attribute="cash" />
+  </subarg>
+  <!--0-->
+  <arg>INS0037</arg>
+  <!--1-->
+  <arg>INS0079</arg>
+  <!--2-->
+  <!--  Tarjeta Credito.-->
+  <arg>MTINS0020</arg>
+  <!--3-->
+  <arg>ANUPD0004</arg>
+  <!--4-->
+  <arg>INS0048</arg>
+  <!--5-->
+  <!--  centrocosto -->
+  <arg attribute="addKey"/>
+  <!--6-->
+  <LNData>
+    <driver>LNContabilidad</driver>
+    <method>fieldData</method>
+    <parameters>
+      <arg attribute="debuging">true</arg>
+      <arg attribute="CodeAPS">9</arg>
+      <arg attribute="Concepto">Abono Separado</arg>
+      <arg attribute="centrocosto">getName</arg>
+      <subarg>
+        <arg attribute="accountField">11050501,D</arg>
+      </subarg>
+    </parameters>
+  </LNData>
+  <!--7-->
+  <arg attribute="addKey" />
+  <!--8-->
+  <LNData>
+    <driver>LNContabilidad</driver>
+    <method>fieldData</method>
+    <parameters>
+      <arg attribute="debuging">true</arg>
+      <arg attribute="CodeAPS">9</arg>
+      <arg attribute="Concepto">Abono Separado</arg>
+      <arg attribute="centrocosto">getName</arg>
+      <subarg>
+        <arg attribute="accountField">111005,D</arg>
+      </subarg>
+    </parameters>
+  </LNData>
+  <!--9-->
+  <arg attribute="addKey" />
+  <!--12-->
+  <subarg>
+         <arg>LUINS0005</arg> 
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Concepto">Abono Separado</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">238005,C</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+</container>

@@ -33,8 +33,9 @@ FROM
 			WHERE
 				c.idtercero='?' AND
 				ac.char_cta ilike '2%' AND
-				d.ndocumento=c.nfactura AND
+				d.ndocumento=c.nfactura AND				
 				d.codigo_tipo='?' AND 
+				--d.codigo_tipo <> 'RC' AND
 				ac.id_cta=c.id_cta AND
 				d.estado='true' AND
 				c.total_factura>0

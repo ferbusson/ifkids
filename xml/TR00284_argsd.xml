@@ -1,0 +1,39 @@
+<container>
+  <subarg>
+    <!--<arg attribute="idDocument">VR</arg>-->
+    <arg attribute="consecutive" />
+    <arg attribute="date" />
+    <arg attribute="actionDocument">createDocument</arg>
+    <!--<arg attribute="cash" />-->
+  </subarg> 
+  <arg>INS0037</arg>
+  <arg>DGINS0015</arg>
+  <arg>INS0048</arg>
+  <subarg>
+    <arg>DGINS0035</arg>  
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Concepto">Vale de retiro</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">11050501,C</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Concepto">Vale de retiro</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">133095,D</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+</container>

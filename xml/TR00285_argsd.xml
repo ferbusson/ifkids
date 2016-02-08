@@ -1,0 +1,15 @@
+<container>
+	<subarg>
+		<arg attribute="actionDocument">annulDocument</arg>
+		<arg attribute="date" />
+	</subarg>
+	<LNData>
+		<driver>LNContabilidad</driver>
+		<method>anular</method>
+		<parameters>
+			<arg attribute="Concepto">
+				Vale de Retiro Anulado
+			</arg>
+		</parameters>
+	</LNData>
+</container>

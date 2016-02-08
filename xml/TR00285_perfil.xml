@@ -1,0 +1,284 @@
+<FORM>
+	<preferences>
+		<size width="650" height="400" />
+		<name>Anular Vale de Retiro</name>
+		<icon>COMPROBANTE-EGRESO</icon>
+		<iconificable />
+		<closable />
+
+	  <loadMultiBranch>MTSEL0711</loadMultiBranch>
+      <mainPackageStore>id_bodega</mainPackageStore>
+      <minorPackageStore>id_bodega_separado</minorPackageStore>
+      <costCenter>id_centrocosto</costCenter>
+      <documentPrefix>codigo_tipo</documentPrefix>
+      <branchName>nombre_suc</branchName>
+
+      <branchAddress>direccion</branchAddress>
+      <branchPhone>telefono</branchPhone>
+      <branchEmail>email</branchEmail>
+      <branchCity>ciudad</branchCity>
+
+		<!--<consecutive>VR</consecutive>-->
+	</preferences>
+	<panel locate="North" type="BorderLayout">
+		<panel locate="North" type="FlowLayout" />
+		<panel locate="Center" type="BorderLayout">
+			<panel locate="West" type="BorderLayout">
+				<panel locate="West" type="FlowLayout" />
+				<component locate="Center">
+					<driver id="terceros">common.gui.components.XMLTextArea</driver>
+					<parameters>
+						<arg attribute="keySQL">DGSEL0025</arg>
+						<arg attribute="driverEvent" id="nro_comprobante">common.gui.components.GenericData</arg>
+						<arg attribute="rows">6</arg>
+						<arg attribute="cols">25</arg>
+						<arg attribute="enabled">false</arg>
+					</parameters>
+				</component>
+			</panel>
+			<panel locate="East" type="BorderLayout">
+				<box locate="North" length="20" />
+				<box locate="South" length="20" />
+				<box locate="East" width="30" />
+				<panel locate="West" type="GridLayout" rows="3" cols="1">
+					<component locate="West">
+						<driver>common.gui.components.XMLLabel</driver>
+						<parameters>
+							<arg attribute="text">Fecha</arg>
+							<arg attribute="alignment">0</arg>
+							<arg attribute="font">Dialog,0,14</arg>
+						</parameters>
+					</component>
+					<component locate="West">
+						<driver>common.gui.components.XMLLabel</driver>
+						<parameters>
+							<arg attribute="text">Nro. Documento</arg>
+							<arg attribute="alignment">0</arg>
+							<arg attribute="font">Dialog,0,14</arg>
+						</parameters>
+					</component>
+					<component locate="West">
+						<driver>common.gui.components.XMLLabel</driver>
+						<parameters>
+							<arg attribute="text">Valor</arg>
+							<arg attribute="alignment">0</arg>
+							<arg attribute="font">Dialog,0,14</arg>
+						</parameters>
+					</component>
+				</panel>
+				<panel locate="Center" type="GridLayout" rows="3" cols="1">
+					<component locate="Center">
+						<driver id="fecha">common.gui.components.GenericData</driver>
+						<parameters>
+							<arg attribute="Panel">false</arg>
+							<arg attribute="driverEvent" id="nro_comprobante">common.gui.components.GenericData</arg>
+							<arg attribute="keySQL">SEL0309</arg>
+							<subarg>
+								<arg attribute="name">DATE</arg>
+								<arg attribute="format">TEXT</arg>
+								<arg attribute="size">9</arg>
+								<arg attribute="maxlength">50</arg>
+								<arg attribute="enabled">false</arg>
+								<arg attribute="return">false</arg>
+								<arg attribute="font">Dialog,0,18</arg>
+								<arg attribute="exportValue">fechai</arg>
+								<arg attribute="printable">true</arg>
+							</subarg>
+						</parameters>
+					</component>
+					<component locate="Center">
+						<driver id="nro_comprobante">common.gui.components.GenericData</driver>
+						<parameters>
+							<arg attribute="Panel">false</arg>
+							<subarg>
+								<arg attribute="name">Numero Documento</arg>
+								<arg attribute="format">TEXT</arg>
+								<arg attribute="size">9</arg>
+								<arg attribute="maxlength">15</arg>
+								<arg attribute="clean">true</arg>
+								<arg attribute="foreground">249,87,87</arg>
+								<arg attribute="background">0,0,0</arg>
+								<arg attribute="font">Dialog,0,18</arg>
+								<arg attribute="alignment">RIGHT</arg>
+								<arg attribute="idAutoDocument">codigo_tipo</arg>
+            					<arg attribute="importValue">codigo_tipo</arg>          
+								<!--<arg attribute="idDocument">VR</arg>
+								<arg attribute="constantValue">VR</arg>-->
+								<arg attribute="sqlCode">SEL0309</arg>
+								<arg attribute="sqlCode">SEL0189</arg>
+								<arg attribute="sqlCode">SEL0280</arg>
+								<arg attribute="sqlCode">DGSEL0025</arg>
+								<arg attribute="sqlCode">DGSEL0021</arg>
+							</subarg>
+						</parameters>
+					</component>
+					<component locate="Center">
+						<driver id="total_comprobante">common.gui.components.GenericData</driver>
+						<parameters>
+							<arg attribute="Panel">false</arg>
+							<arg attribute="driverEvent" id="nro_comprobante">common.gui.components.GenericData</arg>
+							<arg attribute="keySQL">SEL0280</arg>
+							<subarg>
+								<arg attribute="name">TOTAL</arg>
+								<arg attribute="format">NUMERIC</arg>
+								<arg attribute="exportValue">totalcomp</arg>
+								<arg attribute="size">9</arg>
+								<arg attribute="maxlength">15</arg>
+								<arg attribute="font">Dialog,0,18</arg>
+								<arg attribute="foreground">87,244,249</arg>
+								<arg attribute="background">0,0,0</arg>
+								<arg attribute="alignment">RIGHT</arg>
+								<arg attribute="printable">true</arg>
+							</subarg>
+						</parameters>
+					</component>
+				</panel>
+			</panel>
+		</panel>
+	</panel>
+	<panel locate="Center" type="BorderLayout">
+		<panel locate="West" type="FlowLayout" />
+		<panel locate="East" type="FlowLayout" />
+		<component locate="North">
+			<driver>common.gui.components.XMLLabel</driver>
+			<parameters>
+				<arg attribute="text">Concepto</arg>
+				<arg attribute="alignment">0</arg>
+			</parameters>
+		</component>
+		<component locate="Center">
+			<driver>common.gui.components.XMLTextArea</driver>
+			<parameters>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="driverEvent" id="nro_comprobante">common.gui.components.GenericData</arg>
+				<arg attribute="keySQL">SEL0189</arg>
+				<arg attribute="rows">5</arg>
+				<arg attribute="colorBackground">255,213,208</arg>
+			</parameters>
+		</component>
+	</panel>
+	<panel locate="South" type="BorderLayout">
+		<component locate="West">
+			<driver id="estado">common.gui.components.XMLLabel</driver>
+			<parameters>
+				<arg attribute="keySQL">DGSEL0021</arg>
+				<arg attribute="driverEvent" id="nro_comprobante">common.gui.components.GenericData</arg>
+				<arg attribute="text">:</arg>
+				<arg attribute="alignment">LEFT</arg>
+			</parameters>
+		</component>
+		<component locate="Center">
+			<driver>common.gui.components.ButtonsPanel</driver>
+			<parameters>
+				<arg>DELETE</arg>
+				<arg>NEW</arg>
+				<arg>EXIT</arg>
+			</parameters>
+			<events>
+				<object>
+					<name>DELETE</name>
+					<action>
+						<type>transaction</type>
+						<component>
+							<driver id="nro_comprobante">common.gui.components.GenericData</driver>
+							<method>getPackage</method>
+						</component>
+						<component>
+			              <driver>this</driver>
+			              <method>getPackage</method>
+			              <parameters>
+			                <subarg>
+			                  <arg attribute="importValue">codigo_tipo</arg>
+			                </subarg>
+			              </parameters>
+			            </component>       
+			            <component>
+			                <driver id="fecha">common.gui.components.GenericData</driver>
+			                <method>getBlankPackage</method>
+			            </component>     			            
+						<component>
+							<driver>common.gui.components.ButtonsPanel</driver>
+							<method>setEnabled</method>
+							<parameters>
+								<arg attribute="button">DELETE</arg>
+								<arg attribute="state">false</arg>
+							</parameters>
+						</component>
+					</action>
+					<!-- <action>
+						<type>printer</type>
+						<printerTemplate>/plains/TNValeRetiro.xml</printerTemplate>
+						<component>
+						<driver id="fecha">common.gui.components.GenericData</driver>
+						<method>getPrintPackage</method>
+						</component>
+						<component>
+						<driver>this</driver>
+						<method>getPackage</method>
+						<parameters>
+						<subarg>
+						<arg attribute="importValue">userLogin</arg>
+						</subarg>
+						</parameters>
+						</component>
+						<component>
+						<driver>client.gui.components.FindThird</driver>
+						<method>getPrintPackage</method>
+						</component>
+						<component>
+						<driver id="total_comprobante">common.gui.components.GenericData</driver>
+						<method>getPrintPackage</method>
+						</component>
+						<component>
+						<driver id="total_comprobante">common.gui.components.GenericData</driver>
+						<method>getPrintPackage</method>
+						</component>
+						<component>
+						<driver>common.gui.components.XMLTextArea</driver>
+						<method>getPrintPackage</method>
+						</component>
+						</action> -->
+				</object>
+				<object>
+					<name>NEW</name>
+					<component>
+						<driver>this</driver>
+						<method>cleanExternalValues</method>
+					</component>
+					<component>
+						<driver id="terceros">common.gui.components.XMLTextArea</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver id="total_comprobante">common.gui.components.GenericData</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver>common.gui.components.XMLTextArea</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver id="nro_comprobante">common.gui.components.GenericData</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver id="fecha">common.gui.components.GenericData</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver id="estado">common.gui.components.XMLLabel</driver>
+						<method>clean</method>
+					</component>
+					<component>
+						<driver>common.gui.components.ButtonsPanel</driver>
+						<method>setEnabled</method>
+						<parameters>
+							<arg attribute="button">DELETE</arg>
+							<arg attribute="state">true</arg>
+						</parameters>
+					</component>
+				</object>
+			</events>
+		</component>
+	</panel>
+</FORM>

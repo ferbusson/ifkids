@@ -1,0 +1,42 @@
+<container>
+  <subarg>    
+    <arg attribute="consecutive" />
+    <arg attribute="date" />
+    <arg attribute="actionDocument">createDocument</arg>
+  </subarg>
+  0
+  <arg>INS0037</arg>
+  1
+  <arg>MTINS0015</arg>
+  2
+  <arg>MTINS0028</arg>
+  3
+  <arg attribute="addKey"/>
+  4
+  <subarg>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="CodeAPS">9</arg>
+        <arg attribute="Concepto">Traslado a caja principal segun arqueo</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">11050501,C</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>fieldData</method>
+      <parameters>
+        <arg attribute="CodeAPS">9</arg>
+        <arg attribute="Concepto">Traslado a caja principal segun arqueo</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <subarg>
+          <arg attribute="accountField">11050503,D</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+</container>
