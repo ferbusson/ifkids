@@ -1272,6 +1272,23 @@
                 </parameters>
               </component>        -->
 
+<component>
+        <driver id="codigotiposep">common.gui.components.GenericData</driver>
+        <parameters>
+          <subarg>
+            <arg attribute="format">TEXT</arg>
+            <arg attribute="name">codigotiposep</arg>
+            <arg attribute="size">20</arg>
+            <arg attribute="maxlength">20</arg>
+            <arg attribute="sqlInit">MTSEL0690</arg>
+            <arg attribute="queryOnInit">true</arg>
+            <arg attribute="importValue">nombre_suc</arg>          
+            <arg attribute="nameField">codigotiposep</arg>
+            <arg attribute="exportValue">codigotiposep</arg>
+          </subarg>
+        </parameters>
+  </component>
+
           <component>
               <driver id="idcatalogo">common.gui.components.GenericData</driver>
               <parameters>                  
@@ -2169,6 +2186,7 @@
                     <arg attribute="selectedIndex">0</arg>
                     <arg attribute="exportValue">infodoc</arg>
                     <arg attribute="importValue">idtercero</arg>
+                    <arg attribute="importValue">codigotiposep</arg>                    
                     <arg attribute="clean">true</arg>
                     <arg attribute="font">Dialog,0,14</arg>
                     <arg attribute="printable">true</arg>

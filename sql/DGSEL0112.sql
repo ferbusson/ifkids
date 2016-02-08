@@ -13,9 +13,9 @@ WHERE
 	da.ndocumento=d2.ndocumento AND
 	d2.ndocumento=d2.ndocumento AND
 	dd.ndocumento=d2.ndocumento AND
-	d2.estado=false AND
-	d1.codigo_tipo='?' AND
-	d1.numero=LPAD('?',10,'0')
+	d2.estado=FALSE AND
+	d1.codigo_tipo='Q1' AND
+	d1.numero=LPAD('2',10,'0')
 ORDER BY
 	d2.codigo_tipo,
 	d2.ndocumento;

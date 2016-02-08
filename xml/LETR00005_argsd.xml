@@ -1,24 +1,21 @@
 <container>
   <subarg>
-    <!-- <arg attribute="idDocument">AR</arg> -->
     <arg attribute="consecutive" />
     <arg attribute="date" />
     <arg attribute="actionDocument">createDocument</arg>
     <arg attribute="cash" />
   </subarg>
-  <!--0-->
+  <!--0 Observaciones-->
   <arg>INS0037</arg>
   <!--1-->
   <arg>INS0079</arg>
-  <!--2-->
-  <!--  Tarjeta Credito.-->
+  <!-- 2 Tarjeta Credito.-->
   <arg>MTINS0020</arg>
   <!--3-->
   <arg>ANUPD0004</arg>
   <!--4-->
   <arg>INS0048</arg>
-  <!--5-->
-  <!--  centrocosto -->
+  <!-- 5 centrocosto -->
   <arg attribute="addKey"/>
   <!--6-->
   <LNData>
@@ -52,7 +49,7 @@
   </LNData>
   <!--9-->
   <arg attribute="addKey" />
-  <!--12-->
+  <!--10-->
   <subarg>
          <arg>LUINS0005</arg> 
     <LNData>

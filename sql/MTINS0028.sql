@@ -58,7 +58,7 @@ FROM
 WHERE
         d.ndocumento=dd.ndocumento AND
         d.ndocumento=i.ndocumento AND
-        d.estado=TRUE AND
+        --d.estado=TRUE AND
 	d.codigo_tipo !=a.codigo_tipo  AND
         i.id_usuario=a.id_usuario AND
         d.ndocumento=foo.ndocumento;

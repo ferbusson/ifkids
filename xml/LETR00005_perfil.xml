@@ -179,7 +179,8 @@
                 <arg attribute="background">0,0,0</arg>
                 <arg attribute="font">Dialog,0,18</arg>
                 <arg attribute="alignment">RIGHT</arg>
-                <arg attribute="idDocument">AR</arg>
+                <arg attribute="idAutoDocument">codigo_tipo</arg>
+                <!--<arg attribute="idDocument">AR</arg>-->
               </subarg>
             </parameters>
           </component>
@@ -208,7 +209,6 @@
               <arg attribute="selectedIndex">1</arg>
 
               <arg attribute="importValue">tercero_sep</arg>
-              <!--<arg attribute="importValue">codigo_tipo</arg>-->
               <arg attribute="importValue">codigotiposep</arg>
 
               <arg attribute="clean">true</arg>
