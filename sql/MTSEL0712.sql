@@ -1,4 +1,11 @@
-﻿DROP TABLE IF EXISTS tarqueo_efectivo;
+﻿DROP TABLE IF EXISTS tmp_args;
+CREATE TEMP TABLE tmp_args AS
+SELECT
+	'?'::DATE AS fechai,
+	'?'::DATE AS fechaf;
+
+
+DROP TABLE IF EXISTS tarqueo_efectivo;
 CREATE TEMP TABLE tarqueo_efectivo AS
 SELECT
 	da.narqueo,
@@ -7,13 +14,14 @@ FROM
 	documentos d,
 	datos_arqueo da,
 	libro_auxiliar l,
-	cuentas c
+	cuentas c,
+	tmp_args t
 WHERE
 	d.ndocumento=da.ndocumento AND
 	d.ndocumento=l.ndocumento AND
 	c.id_cta=l.id_cta AND
-	d.fecha::date>='2016-02-01' AND
-	d.fecha::date<='2016-02-09' AND
+	d.fecha::date>=t.fechai AND
+	d.fecha::date<=t.fechaf AND
 	c.char_cta like '1105%'
 GROUP BY
 	da.narqueo;
@@ -27,17 +35,40 @@ FROM
 	documentos d,
 	datos_arqueo da,
 	libro_auxiliar l,
-	cuentas c
+	cuentas c,
+	tmp_args t
 WHERE
 	d.ndocumento=da.ndocumento AND
 	d.ndocumento=l.ndocumento AND
 	c.id_cta=l.id_cta AND
-	d.fecha::date>='2016-02-01' AND
-	d.fecha::date<='2016-02-09' AND
+	d.fecha::date>=t.fechai AND
+	d.fecha::date<=t.fechaf AND
 	(c.char_cta like '1110%' OR
 	c.char_cta='281010')
 GROUP BY
 	da.narqueo;
+
+DROP TABLE IF EXISTS tarqueo_egresos;
+CREATE TEMP TABLE tarqueo_egresos AS
+SELECT
+	da.narqueo,
+	sum(haber) AS total
+FROM
+	documentos d,
+	datos_arqueo da,
+	libro_auxiliar l,
+	cuentas c,
+	tmp_args t
+WHERE
+	d.ndocumento=da.ndocumento AND
+	d.ndocumento=l.ndocumento AND
+	c.id_cta=l.id_cta AND
+	d.fecha::date>=t.fechai AND
+	d.fecha::date<=t.fechaf AND
+	c.char_cta like '1105%'
+GROUP BY
+	da.narqueo;
+
 
 DROP TABLE IF EXISTS tarqueo_recaudo;
 CREATE TEMP TABLE tarqueo_recaudo AS
@@ -68,10 +99,11 @@ SELECT
 	r.fecha,
 	r.numero,
 	r.cajero,
-	e.total AS total_efectivo,
+	e.total-te.total AS total_efectivo,
 	t.total AS total_tarjetas,
+	te.total AS total_egresos,
 	pesos+(dolares*trm)+tcredito+tdebito+tregalo AS recaudo,
-	ROUND((e.total-(pesos+(dolares*trm)+tcredito+tdebito+tregalo))::NUMERIC,2) AS diferencia,
+	ROUND(((e.total-te.total)-(pesos+(dolares*trm)+tcredito+tdebito+tregalo))::NUMERIC,2) AS diferencia,
 	r.narqueo
 FROM	
 	tarqueo_recaudo r
@@ -82,7 +114,11 @@ ON
 LEFT OUTER JOIN
 	tarqueo_tarjetas t
 ON
-	r.narqueo = t.narqueo;
+	r.narqueo = t.narqueo
+LEFT OUTER JOIN
+	tarqueo_egresos te
+ON
+	r.narqueo = te.narqueo;
 
 
 SELECT
@@ -101,7 +137,7 @@ FROM
 	tmp_mvaq AS q,
 	(SELECT
 		fecha,
-		sum(total_efectivo+total_tarjetas) AS gtotal
+		sum(total_efectivo+total_tarjetas-total_egresos) AS gtotal
 	FROM
 		tmp_mvaq
 	GROUP BY

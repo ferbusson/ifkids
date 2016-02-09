@@ -1,0 +1,168 @@
+<FORM>
+  <preferences>
+    <size width="590" height="510" />
+    <name>Ventas del Dia</name>
+    <icon>/icons/ico_cambio_luminaria.png</icon>
+    <iconificable />
+    <resizable />
+    <closable />
+  </preferences>
+  <panel locate="North" type="FlowLayout" />
+  <panel locate="South" type="FlowLayout" />
+  <panel locate="East" type="FlowLayout" />
+  <panel locate="West" type="FlowLayout" />
+    <panel locate="Center" type="GridLayout" rows="2" cols="1">
+    <panel name="Recaudo por Usuario" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout" locate="Center">    
+    <component locate="North">
+      <driver>common.gui.components.XMLLabel</driver>
+      <parameters>
+        <arg attribute="text">Movimientos por Usuario</arg>
+        <arg attribute="alignment">LEFT</arg>
+      </parameters>
+    </component>
+    <component locate="Center">
+          <driver id="usuarios">client.gui.components.TableFindData</driver>
+          <parameters>
+            <arg attribute="rows">25</arg>
+            <arg attribute="protectSelected">true</arg>            
+            <arg attribute="colorBackground">102,204,204</arg>
+            <arg attribute="colorSelected">153,204,102</arg>
+            <arg attribute="font">Dialog,0,12</arg>
+            <arg attribute="totales">d</arg>
+            <arg attribute="conditionalColor">102,153,204:d&gt;0</arg>
+            <arg attribute="sqlInit">MTSEL0730</arg>
+            <arg attribute="queryOnInit">true</arg>            
+            <subarg><!-- a1 -->
+              <arg attribute="name">Nit/CC</arg>
+              <arg attribute="length">0</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- b2 -->
+              <arg attribute="name">Sucursal</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- c3 -->
+              <arg attribute="name">Cajero</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- d4 -->
+              <arg attribute="name">Total x Día</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">DECIMAL</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- e5 -->
+              <arg attribute="name">id_sucursal</arg>
+              <arg attribute="length">0</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+          </parameters>
+        </component>
+        <panel locate="South" type="BorderLayout">
+        <component locate="East">
+      <driver id="totalu">client.gui.components.TableDataFields</driver>
+      <parameters>        
+        <arg attribute="linkTable">usuarios</arg>
+        <subarg>
+          <arg attribute="label">Total Movimientos</arg>
+          <arg attribute="format">NUMERIC</arg>
+          <arg attribute="size">10</arg>
+          <arg attribute="alignment">RIGHT</arg>
+          <arg attribute="maxlength">20</arg>
+          <arg attribute="background">102,153,204</arg>
+          <arg attribute="foreground">0,0,0</arg>
+          <arg attribute="totalCol">d</arg>
+          <arg attribute="printable">true</arg>
+        </subarg>
+      </parameters>
+    </component>
+  </panel>
+  </panel>
+  <panel name="Informacion de Recaudo" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout">    
+    <component locate="North">
+      <driver>common.gui.components.XMLLabel</driver>
+      <parameters>
+        <arg attribute="text">Informacion de Recaudo</arg>
+        <arg attribute="alignment">LEFT</arg>
+      </parameters>
+    </component>
+    <component locate="Center">
+          <driver id="recaudo">client.gui.components.TableFindData</driver>
+          <parameters>
+            <arg attribute="rows">25</arg>
+            <arg attribute="protectSelected">true</arg>            
+            <arg attribute="colorBackground">102,204,204</arg>
+            <arg attribute="colorSelected">153,204,102</arg>
+            <arg attribute="font">Dialog,0,12</arg>
+            <arg attribute="totales">d</arg>
+            <arg attribute="conditionalColor">102,153,204:d&gt;-1</arg>
+            <arg attribute="sqlInit">MTSEL0731</arg>
+            <arg attribute="queryOnInit">true</arg>            
+            <subarg><!-- a1 -->
+              <arg attribute="name">idcredito</arg>
+              <arg attribute="length">0</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- b2 -->
+              <arg attribute="name">Sucursal</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- c3 -->
+              <arg attribute="name">Tipo</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- d4 -->
+              <arg attribute="name">Valor</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">DECIMAL</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+            <subarg><!-- e5 -->
+              <arg attribute="name">id_sucursal</arg>
+              <arg attribute="length">180</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+            </subarg>            
+          </parameters>
+        </component>
+        <panel locate="South" type="BorderLayout">
+        <component locate="East">
+      <driver id="totalr">client.gui.components.TableDataFields</driver>
+      <parameters>        
+        <arg attribute="linkTable">recaudo</arg>
+        <subarg>
+          <arg attribute="label">Total Recaudo</arg>
+          <arg attribute="format">NUMERIC</arg>
+          <arg attribute="size">10</arg>
+          <arg attribute="alignment">RIGHT</arg>
+          <arg attribute="background">102,153,204</arg>
+          <arg attribute="foreground">0,0,0</arg>
+          <arg attribute="maxlength">20</arg>
+          <arg attribute="totalCol">d</arg>
+          <arg attribute="printable">true</arg>
+        </subarg>
+      </parameters>
+    </component>
+  </panel>
+  </panel>
+</panel>
+  <panel locate="South" type="BorderLayout" align="CENTER">      
+  <component locate="East">
+    <driver>common.gui.components.ButtonsPanel</driver>
+    <parameters>
+      <arg>EXIT</arg>
+    </parameters>
+  </component>
+</panel>
+</FORM>
