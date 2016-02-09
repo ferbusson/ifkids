@@ -21,8 +21,8 @@ FROM
 		d.ndocumento=da.ndocumento AND
 		d.ndocumento=l.ndocumento AND
 		c.id_cta=l.id_cta AND
-		d.fecha::date>='?' AND
-		d.fecha::date<='?' AND
+		d.fecha::date>='2016-02-01' AND
+		d.fecha::date<='2016-02-28' AND
 		(c.char_cta like '11%' OR
 		c.char_cta='281010')
 	GROUP BY
@@ -60,7 +60,7 @@ SELECT
 	diferencia,
 	CASE WHEN diferencia < 0 THEN 'Sobró' ELSE CASE WHEN diferencia > 0 THEN 'Faltó' ELSE 'Perfect!!!' END END AS estado,
 	gtotal,
-	'MTR00208' AS perfil,
+	'MTR00201' AS perfil,
 	ndocumento
 FROM
 	tmp_mvaq AS q,
