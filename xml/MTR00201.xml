@@ -1,6 +1,6 @@
 <FORM>
   <preferences>
-    <size width="580" height="620" />
+    <size width="600" height="620" />
     <name>Consultar Cuadre de Caja</name>
     <icon>CONSULTAR</icon>
     <iconificable />
@@ -20,7 +20,7 @@
         <arg attribute="alignment">RIGHT</arg>
         <arg attribute="importFormValue">idform</arg>
         <arg attribute="printable">true</arg>
-        <arg attribute="sqlCode">PRSEL0015</arg>
+        <arg attribute="sqlCode">MTSEL0682</arg>
       </subarg>
     </parameters>
   </component>
@@ -41,9 +41,9 @@
         <parameters>
           <arg attribute="enabled">false</arg>
           <arg attribute="font">Dialog,0,13</arg>
-          <arg attribute="rows">40</arg>
-          <arg attribute="cols">300</arg>
-          <arg attribute="keySQL">SEL0189</arg>
+          <arg attribute="rows">4</arg>
+          <arg attribute="cols">18</arg>
+          <arg attribute="keySQL">HCSEL0030</arg>
           <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
         </parameters>
       </component>
@@ -51,7 +51,7 @@
         <driver id="cajero">common.gui.components.GenericData</driver>
         <parameters>
           <arg attribute="Panel">false</arg>
-          <arg attribute="keySQL">MTSEL0127</arg>
+          <arg attribute="keySQL">MTSEL0720</arg>
           <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
           <subarg>
             <arg attribute="name">Cajero</arg>
@@ -91,7 +91,7 @@
         <parameters>
           <arg attribute="returnBlankPackage">true</arg>
           <arg attribute="Panel">false</arg>
-          <arg attribute="keySQL">SEL0309</arg>
+          <arg attribute="keySQL">HCSEL0027</arg>
           <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
           <subarg>
             <arg attribute="name">DATE</arg>
@@ -111,7 +111,7 @@
         <driver>client.gui.components.TableDataFields</driver>
         <parameters>
           <arg attribute="Panel">false</arg>
-          <arg attribute="keySQL">PRSEL0015</arg>
+          <arg attribute="keySQL">MTSEL0682</arg>
       <arg attribute="driverEvent" id="nro_promocion">common.gui.components.GenericData</arg>
           <subarg>
             <arg attribute="format">TEXT</arg>
@@ -123,24 +123,22 @@
             <arg attribute="foreground">249,87,87</arg>
             <arg attribute="background">0,0,0</arg>
             <arg attribute="alignment">RIGHT</arg>
-            <arg attribute="idDocument">AQ</arg>
-            <arg attribute="constantValue">AQ</arg>
-            <arg attribute="sqlCode">SEL0309</arg>
-            <arg attribute="sqlCode">SEL0189</arg>
-            <arg attribute="sqlCode">DGSEL0112</arg>
-            <arg attribute="sqlCode">DGSEL0021</arg>
-            <arg attribute="sqlCode">MTSEL0119</arg>
-            <arg attribute="sqlCode">MTSEL0120</arg>
-            <arg attribute="sqlCode">MTSEL0121</arg>
-            <arg attribute="sqlCode">MTSEL0122</arg>
-            <arg attribute="sqlCode">MTSEL0127</arg>
-            <arg attribute="sqlCode">MTSEL0128</arg>
-            <arg attribute="sqlCode">MTSEL0129</arg>
-            <arg attribute="sqlCode">MTSEL0256</arg>
-            <arg attribute="sqlCode">MTSEL0258</arg>
-            <arg attribute="sqlCode">MTSEL0326</arg>
-            <arg attribute="sqlCode">MTSEL0327</arg>
-            <arg attribute="sqlCode">MTSEL0333</arg>
+            <arg attribute="sqlCode">HCSEL0027</arg> <!-- Consulta fecha -->
+            <arg attribute="sqlCode">HCSEL0030</arg> <!-- Consulta observaaciones -->
+            <arg attribute="sqlCode">MTSEL0714</arg> <!-- Consulta documentos anulados -->
+            <arg attribute="sqlCode">MTSEL0715</arg> <!-- Consulta estado -->
+            <arg attribute="sqlCode">MTSEL0716</arg> <!-- Consulta facturacion pos efectivo-->
+            <arg attribute="sqlCode">MTSEL0717</arg> <!-- Consulta cambios -->
+            <arg attribute="sqlCode">MTSEL0718</arg> <!-- Consulta fac credito -->
+            <arg attribute="sqlCode">MTSEL0719</arg> <!-- Consulta cambios credito -->
+            <arg attribute="sqlCode">MTSEL0720</arg> <!-- Consulta nombre de usuario de arqueo -->
+            <arg attribute="sqlCode">MTSEL0721</arg> <!-- Consulta tabla efectivo -->
+            <arg attribute="sqlCode">MTSEL0722</arg> <!-- Consulta vlr tarjetas -->
+            <arg attribute="sqlCode">MTSEL0723</arg> <!-- Consulta recarga tarjetas -->
+            <arg attribute="sqlCode">MTSEL0724</arg> <!-- Consulta total t regalo -->
+            <arg attribute="sqlCode">MTSEL0725</arg> <!-- Consulta separados -->
+            <arg attribute="sqlCode">MTSEL0726</arg> <!-- Consulta abonos -->
+            <arg attribute="sqlCode">MTSEL0727</arg> <!-- Consulta comprobantes ingreso -->
           </subarg>
         </parameters>
       </component>
@@ -294,7 +292,7 @@
           <parameters>
             <arg attribute="Panel">false</arg>
             <subarg>
-              <arg attribute="sqlInit">MTSEL0697</arg>
+              <arg attribute="sqlInit">DGSEL0054</arg>
               <arg attribute="queryOnInit">true</arg>
               <arg attribute="importValue">userLogin</arg>
               <arg attribute="format">NUMERIC</arg>
@@ -535,7 +533,7 @@
           <driver id="tcajerose">common.gui.components.GenericData</driver>
           <parameters>
             <arg attribute="Panel">false</arg>
-            <arg attribute="keySQL">MTSEL0128</arg>
+            <arg attribute="keySQL">MTSEL0721</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <subarg>
               <arg attribute="format">NUMERIC</arg>
@@ -555,7 +553,7 @@
           <driver id="tcajerosf">common.gui.components.GenericData</driver>
           <parameters>
             <arg attribute="Panel">false</arg>
-            <arg attribute="keySQL">MTSEL0129</arg>
+            <arg attribute="keySQL">MTSEL0722</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <subarg>
               <arg attribute="format">NUMERIC</arg>
@@ -575,7 +573,7 @@
           <driver id="tcajerosregalo">common.gui.components.GenericData</driver>
           <parameters>
             <arg attribute="Panel">false</arg>
-            <arg attribute="keySQL">MTSEL0258</arg>
+            <arg attribute="keySQL">MTSEL0724</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <subarg>
               <arg attribute="format">NUMERIC</arg>
@@ -627,7 +625,7 @@
         <component locate="Center">
           <driver id="poscontado">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0119</arg>
+            <arg attribute="keySQL">MTSEL0716</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -699,7 +697,7 @@
         <component locate="Center">
           <driver id="tprepago">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0256</arg>
+            <arg attribute="keySQL">MTSEL0723</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -771,7 +769,7 @@
         <component locate="Center">
           <driver id="poscredito">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0121</arg>
+            <arg attribute="keySQL">MTSEL0718</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -846,7 +844,7 @@
         <component locate="Center">
           <driver id="sepcontado">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0326</arg>
+            <arg attribute="keySQL">MTSEL0725</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -918,7 +916,7 @@
         <component locate="Center">
           <driver id="abonosep">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0327</arg>
+            <arg attribute="keySQL">MTSEL0726</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -990,7 +988,7 @@
         <component locate="Center">
           <driver id="abonoscartera">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0333</arg>
+            <arg attribute="keySQL">MTSEL0727</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -1066,7 +1064,7 @@
         <component locate="Center">
           <driver id="cambioscontado">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0120</arg>
+            <arg attribute="keySQL">MTSEL0717</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -1138,7 +1136,7 @@
         <component locate="Center">
           <driver id="cambioscredito">client.gui.components.TableFindData</driver>
           <parameters>
-            <arg attribute="keySQL">MTSEL0122</arg>
+            <arg attribute="keySQL">MTSEL0719</arg>
             <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
             <arg attribute="colorBackground">175,197,218</arg>
             <arg attribute="colorSelected">162,183,202</arg>
@@ -1199,7 +1197,7 @@
       </panel>
     </panel>
 <!-- Documentos Anulados -->
-    <panel name="Documentos Anulados" icon="/icons/ico_anular.png" type="BorderLayout">
+    <!--<panel name="Documentos Anulados" icon="/icons/ico_anular.png" type="BorderLayout">
       <panel type="FlowLayout" locate="North" align="left">
         <component>
           <driver>common.gui.components.XMLLabel</driver>
@@ -1213,7 +1211,7 @@
       <component locate="Center">
         <driver id="anulados">client.gui.components.TableFindData</driver>
         <parameters>
-          <arg attribute="keySQL">DGSEL0112</arg>
+          <arg attribute="keySQL">MTSEL0714</arg>
           <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
           <arg attribute="colorBackground">175,197,218</arg>
           <arg attribute="colorSelected">162,183,202</arg>
@@ -1250,13 +1248,13 @@
           </subarg>
         </parameters>
       </component>
-    </panel>
+    </panel>-->
   </tab>
   <panel type="BorderLayout" locate="South">
     <component locate="West">
       <driver id="estado">common.gui.components.XMLLabel</driver>
       <parameters>
-        <arg attribute="keySQL">DGSEL0021</arg>
+        <arg attribute="keySQL">MTSEL0715</arg>
           <arg attribute="driverEvent">client.gui.components.TableDataFields</arg>
         <arg attribute="text">:</arg>
         <arg attribute="alignment">LEFT</arg>

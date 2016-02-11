@@ -30,8 +30,9 @@
             <arg attribute="font">Dialog,0,12</arg>
             <arg attribute="totales">d</arg>
             <arg attribute="conditionalColor">102,153,204:d&gt;0</arg>
-            <arg attribute="sqlInit">MTSEL0730</arg>
-            <arg attribute="queryOnInit">true</arg>            
+            <arg attribute="initSQL">MTSEL0730</arg>
+            <!-- <arg attribute="sqlInit">MTSEL0730</arg>
+            <arg attribute="queryOnInit">true</arg>             -->
             <subarg><!-- a1 -->
               <arg attribute="name">Nit/CC</arg>
               <arg attribute="length">0</arg>
@@ -102,8 +103,9 @@
             <arg attribute="font">Dialog,0,12</arg>
             <arg attribute="totales">d</arg>
             <arg attribute="conditionalColor">102,153,204:d&gt;-1</arg>
-            <arg attribute="sqlInit">MTSEL0731</arg>
-            <arg attribute="queryOnInit">true</arg>            
+            <arg attribute="initSQL">MTSEL0731</arg>
+            <!-- <arg attribute="sqlInit">MTSEL0731</arg>
+            <arg attribute="queryOnInit">true</arg> -->
             <subarg><!-- a1 -->
               <arg attribute="name">idcredito</arg>
               <arg attribute="length">0</arg>
@@ -130,7 +132,7 @@
             </subarg>            
             <subarg><!-- e5 -->
               <arg attribute="name">id_sucursal</arg>
-              <arg attribute="length">180</arg>
+              <arg attribute="length">0</arg>
               <arg attribute="type">STRING</arg>
               <arg attribute="enabled">false</arg>
             </subarg>            

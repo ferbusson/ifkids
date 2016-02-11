@@ -1396,7 +1396,7 @@
           <arg attribute="length">100</arg>
           <arg attribute="type">DECIMAL</arg>
           <arg attribute="roundDecimal">2</arg>
-          <arg attribute="enabled">true</arg>
+          <arg attribute="enabled">false</arg>
           <arg attribute="queryCol">6</arg>
           <arg attribute="minValue">0</arg>
           <arg attribute="returnCol">2</arg>
