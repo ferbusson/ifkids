@@ -292,7 +292,6 @@
                     <arg attribute="alignment">RIGHT</arg>
                     <arg attribute="calculateExportValue">(totalb-totala)</arg>
                     <arg attribute="printable">true</arg>
-                    <!--  <arg attribute="importValue">totalfact</arg> -->
                   </subarg>
                 </parameters>
               </component>
@@ -529,90 +528,6 @@
           </panel>
         </panel>
       </panel>
-      <!--  <panel name="CREDITCARD" icon="/icons/ico_tarjeta_credito_48x48.png" font="Dialog,1,14" type="BorderLayout">
-        <component locate="Center">
-        <driver id="credittable">client.gui.components.TableFindData</driver>
-        <parameters>
-        <arg attribute="Query">SEL0113</arg>
-        <arg attribute="rows">25</arg>
-        <arg attribute="colorBackground">152,203,255</arg>
-        <arg attribute="colorSelected">66,160,255</arg>
-        <arg attribute="font">Dialog,0,28</arg>
-        <arg attribute="protectSelected">true</arg>
-        <arg attribute="totales">b</arg>
-        <arg attribute="formula">d=c/100*b</arg>
-        <arg attribute="formula">e=140</arg>
-        <arg attribute="returnNullValue">true</arg>
-        <arg attribute="rowHeight">30</arg>
-        <subarg>
-        <arg attribute="name">TCREDITO</arg>
-        <arg attribute="length">270</arg>
-        <arg attribute="type">COMBOSQL</arg>
-        <arg attribute="enabled">true</arg>
-        <arg attribute="returnCol">0</arg>
-        <arg attribute="sqlCombo">SEL0112</arg>
-        <arg attribute="printable">true</arg>
-        </subarg>
-        <subarg>
-        <arg attribute="name">VALUE</arg>
-        <arg attribute="length">180</arg>
-        <arg attribute="type">DECIMAL</arg>
-        <arg attribute="clean">true</arg>
-        <arg attribute="printable">true</arg>
-        <arg attribute="defaultValue">0</arg>
-        <arg attribute="enabled">true</arg>
-        <arg attribute="decimals">2</arg>
-        <arg attribute="returnCol">1</arg>
-        </subarg>
-        <subarg>
-        <arg attribute="name">COMISION</arg>
-        <arg attribute="length">180</arg>
-        <arg attribute="type">DECIMAL</arg>
-        <arg attribute="roundDecimal">2</arg>
-        <arg attribute="queryCol">0</arg>
-        <arg attribute="enabled">false</arg>
-        <arg attribute="clean">true</arg>
-        </subarg>
-        <subarg>
-        <arg attribute="name">T. Comision</arg>
-        <arg attribute="length">180</arg>
-        <arg attribute="type">DECIMAL</arg>
-        <arg attribute="roundDecimal">2</arg>
-        <arg attribute="enabled">false</arg>
-        <arg attribute="returnCol">2</arg>
-        <arg attribute="clean">true</arg>
-        </subarg>
-        <subarg>
-        <arg attribute="name">BANCO</arg>
-        <arg attribute="length">0</arg>
-        <arg attribute="type">INTEGER</arg>
-        <arg attribute="enabled">false</arg>
-        <arg attribute="returnCol">3</arg>
-        </subarg>
-        </parameters>
-        </component>
-        <panel locate="South" type="BorderLayout">
-        <component locate="East">
-        <driver id="tcreditcard">client.gui.components.TableDataFields</driver>
-        <parameters>
-        <arg attribute="Panel">false</arg>
-        <arg attribute="linkTable">credittable</arg>
-        <subarg>
-        <arg attribute="label">TOTAL</arg>
-        <arg attribute="format">NUMERIC</arg>
-        <arg attribute="size">15</arg>
-        <arg attribute="maxlength">15</arg>
-        <arg attribute="exportValue">tcreditcard</arg>
-        <arg attribute="enabled">false</arg>
-        <arg attribute="alignment">RIGHT</arg>
-        <arg attribute="totalCol">b</arg>
-        <arg attribute="returnNullValue">true</arg>
-        <arg attribute="font">Dialog,0,20</arg>
-        </subarg>
-        </parameters>
-        </component>
-        </panel>
-        </panel> -->
       <panel name="CHEQUE" icon="/icons/ico_cheque_50x30.png" font="Dialog,1,14" type="BorderLayout">
         <component locate="Center">
           <driver id="checktable">client.gui.components.TableFindData</driver>
@@ -621,7 +536,6 @@
             <arg attribute="protectSelected">true</arg>
             <arg attribute="totales">f</arg>
             <arg attribute="returnNullValue">true</arg>
-            <!-- <arg attribute="sendRecord">"110505","",5,"0","CH"</arg> -->
             <arg attribute="colorBackground">152,203,255</arg>
             <arg attribute="colorSelected">66,160,255</arg>
             <arg attribute="font">Dialog,0,28</arg>
@@ -910,6 +824,11 @@
               <driver id="idbodegas">common.gui.components.GenericData</driver>
               <method>getPackage</method>
             </component>
+            11a <!-- remueve centrocosto -->
+            <component>
+              <driver id="idbodegas">common.gui.components.GenericData</driver>
+              <method>getBlankPackage</method>
+            </component>
             12
             <component>
               <driver id="salida">client.gui.components.TableFindData</driver>
@@ -924,6 +843,11 @@
             <component>
               <driver id="idbodegae">common.gui.components.GenericData</driver>
               <method>getPackage</method>
+            </component>
+            14a<!-- remueve centrocosto -->
+            <component>
+              <driver id="idbodegae">common.gui.components.GenericData</driver>
+              <method>getBlankPackage</method>
             </component>
             15
             <component>
@@ -1074,9 +998,6 @@
     <iconificable />
     <closable />
     <date />
-    <!-- <exportValue>keyBodega,FABFLY</exportValue>
-    <exportValue>keyBanco,140</exportValue>
-    <consecutive>CA</consecutive> -->
 
     <loadMultiBranch>MTSEL0688</loadMultiBranch>
     <mainPackageStore>id_bodega</mainPackageStore>
@@ -1205,30 +1126,6 @@
             </subarg>
           </parameters>
     </component>
-  <!-- <component>
-    <driver id="Bodega">client.gui.components.XMLComboBox</driver>
-    <parameters>
-      <arg attribute="Panel">false</arg>
-      <arg attribute="importValue">keyBodega</arg>
-      <arg attribute="sqlCombo">DGSEL0011</arg>
-      <arg attribute="selectedIndex">1</arg>
-      <arg attribute="name">BODEGA</arg>
-      <arg attribute="addAttribute">key</arg>
-      <arg attribute="nameField">bodegaSaliente</arg>
-    </parameters>
-  </component>
-  <component>
-    <driver id="Bodegaentrante">client.gui.components.XMLComboBox</driver>
-    <parameters>
-      <arg attribute="Panel">false</arg>
-      <arg attribute="importValue">keyBodega</arg>
-      <arg attribute="sqlCombo">DGSEL0011</arg>
-      <arg attribute="selectedIndex">1</arg>
-      <arg attribute="name">BODEGA</arg>
-      <arg attribute="addAttribute">key</arg>
-      <arg attribute="nameField">bodegaEntrante</arg>
-    </parameters>
-  </component> -->
   <panel locate="North" type="BorderLayout">
     <panel type="FlowLayout" locate="North" />
     <panel type="FlowLayout" locate="West" />
@@ -1286,7 +1183,6 @@
             <arg attribute="font">Dialog,1,24</arg>
             <arg attribute="alignment">RIGHT</arg>
             <arg attribute="idAutoDocument">codigo_tipo</arg>
-            <!-- <arg attribute="idDocument">CA</arg> -->
             <arg attribute="printable">true</arg>
           </subarg>
         </parameters>
@@ -1358,14 +1254,11 @@
           <arg attribute="exportTotalCol">k,tivaa</arg>
           <arg attribute="exportTotalCol">i,descuentoa</arg>
           <arg attribute="exportTotalCol">l,totala</arg>
-          <!--<arg attribute="beanshell">d=d&gt;c?0:d</arg>-->
           <arg attribute="formula">h=(d*e)/(1+(f/100))</arg>
           <arg attribute="formula">i=h*g/100</arg>
           <arg attribute="superformulaNQ">l=d*e-i</arg>
           <arg attribute="superformulaNQ">j=(d*e-i)/(1+(f/100))</arg>
-          <!-- <arg attribute="superformulaNQ">k=l-j</arg> -->
           <arg attribute="driverEventRecord" id="barras">common.gui.components.EmakuTouchField</arg>
-          <!-- <arg attribute="driverEventRecord">common.gui.components.EmakuTouchField</arg>  -->
           <arg attribute="singleSendRecord">1,"\n",3," x $",4," - dcto $",8," Total = $",11</arg>
           <arg attribute="clean">true</arg>
           <subarg><!-- a -->
@@ -1416,7 +1309,7 @@
             <arg attribute="length">100</arg>
             <arg attribute="type">DECIMAL</arg>
             <arg attribute="roundDecimal">2</arg>
-            <arg attribute="enabled">true</arg>
+            <arg attribute="enabled">false</arg>
             <arg attribute="queryCol">2</arg>
             <arg attribute="minValue">0</arg>
             <arg attribute="returnCol">2</arg>
@@ -1428,7 +1321,6 @@
             <arg attribute="type">DECIMAL</arg>
             <arg attribute="roundDecimal">2</arg>
             <arg attribute="enabled">false</arg>
-            <!-- <arg attribute="queryCol">3</arg> -->
             <arg attribute="returnCol">3</arg>
           </subarg>
           <subarg><!-- g -->
@@ -1547,9 +1439,7 @@
           <arg attribute="formula">i=h*g/100</arg>
           <arg attribute="superformulaNQ">l=d*e-i</arg>
           <arg attribute="superformulaNQ">j=(d*e-i)/(1+(f/100))</arg>
-          <!-- <arg attribute="superformulaNQ">k=l-j</arg> -->
-          <arg attribute="driverEventRecord" id="elimina">common.gui.components.EmakuTouchField</arg>
-          <!-- <arg attribute="driverEventRecord">common.gui.components.EmakuTouchField</arg>  -->
+          <arg attribute="driverEventRecord" id="elimina">common.gui.components.EmakuTouchField</arg>          
           <arg attribute="singleSendRecord">1,"\n",3," x $",4," - dcto $",8," Total = $",11</arg>
           <arg attribute="clean">true</arg>
           <subarg><!-- a -->
@@ -1599,7 +1489,7 @@
             <arg attribute="length">100</arg>
             <arg attribute="type">DECIMAL</arg>
             <arg attribute="roundDecimal">2</arg>
-            <arg attribute="enabled">true</arg>
+            <arg attribute="enabled">false</arg>
             <arg attribute="queryCol">2</arg>
             <arg attribute="minValue">0</arg>
             <arg attribute="returnCol">2</arg>
@@ -1611,7 +1501,6 @@
             <arg attribute="type">DECIMAL</arg>
             <arg attribute="roundDecimal">2</arg>
             <arg attribute="enabled">false</arg>
-            <!-- <arg attribute="queryCol">3</arg> -->
             <arg attribute="returnCol">3</arg>
           </subarg>
           <subarg><!-- g -->
@@ -1848,48 +1737,6 @@
           </object>
           <object>
             <name>NEW</name>
-              <!-- <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-              <component>
-              <method>clean</method>
-              </component>
-              <component>
-              <method>clean</method>
-              </component>
-              <component>
-              <method>clean</method>
-              </component>
-              <component>
-              
-              <method>clean</method>
-              </component>
-            -->
             <component>
               <driver id="entrada">client.gui.components.TableFindData</driver>
               <method>clean</method>

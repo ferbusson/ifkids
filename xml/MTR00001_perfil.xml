@@ -2244,8 +2244,6 @@
           <arg attribute="totales">d,h,i,j,k,l</arg>
           <arg attribute="exportTotalCol">j,stotal</arg>
 
-          <!--<arg attribute="beanshell">d=d&gt;c?0:d</arg>-->
-
           <arg attribute="exportTotalCol">k,tiva</arg>
           <arg attribute="formula">h=(d*e)/(1+(f/100))</arg>
           <arg attribute="formula">i=h*g/100</arg>
