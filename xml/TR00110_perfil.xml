@@ -1,0 +1,1572 @@
+<FORM>
+	<preferences>
+		<size width="820" height="550" />
+		<icon>CONSULTAR</icon>
+		<name>Consultar Compra Crédito</name>
+		<iconificable />
+		<resizable />
+		<closable />
+		<consecutive>EA</consecutive>
+	</preferences>
+	<panel locate="North" type="BorderLayout">
+		<tab locate="West">
+			<panel name="THIRD" icon="NTERCERO" type="BorderLayout">
+				<panel locate="West" type="FlowLayout" />
+				<component locate="Center">
+					<driver>client.gui.components.FindThird</driver>
+					<parameters>
+						<arg attribute="keySQL">SEL0169</arg>
+						<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+						<arg attribute="sqlSizeRecords">SEL0132</arg>
+						<arg attribute="sqlCodeWT">DGSEL0074</arg>
+						<arg attribute="sqlRecords">SEL0068</arg>
+						<arg attribute="sqlAddress">SEL0069</arg>
+						<arg attribute="sqlPhones">SEL0070</arg>
+						<arg attribute="sqlCodeWT">SEL0210</arg>
+						<arg attribute="sqlCodeWT">SEL0211</arg>
+						<arg attribute="sqlCodeWT">SEL0209</arg>
+						<arg attribute="typeDocument">EA</arg>
+						<arg attribute="maxRecords">100</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="placement">LEFT</arg>
+						<arg attribute="singleIcon">true</arg>
+						<subarg>
+							<arg attribute="driverEventClass">client.gui.components.TableFindData</arg>
+							<arg attribute="method">setQuery</arg>
+							<arg attribute="keySwitch">regimen</arg>
+							<arg attribute="case">1,SEL0191</arg>
+							<arg attribute="default">SEL0167</arg>
+						</subarg>
+					</parameters>
+				</component>
+			</panel>
+			<panel name="Guia" icon="/icons/ico_guias.png" type="BorderLayout">
+				<component locate="Center">
+					<driver id="guia">common.gui.components.GenericData</driver>
+					<parameters>
+						<arg attribute="keySQL">MTSEL0150</arg>
+						<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+						<arg attribute="Panel">false</arg>
+						<subarg>
+							<arg attribute="label">Transportadora</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+						<subarg>
+							<arg attribute="label">Guia</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+						<subarg>
+							<arg attribute="label">Fecha Recepcion</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+						<subarg>
+							<arg attribute="label">Peso (Kg.)</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+						<subarg>
+							<arg attribute="label">Cajas</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+						<subarg>
+							<arg attribute="label">Recibio</arg>
+							<arg attribute="format">TEXT</arg>
+							<arg attribute="size">15</arg>
+							<arg attribute="maxlength">50</arg>
+							<arg attribute="enabled">false</arg>
+							<arg attribute="return">false</arg>
+							<arg attribute="clean">true</arg>
+							<arg attribute="printable">true</arg>
+						</subarg>
+					</parameters>
+				</component>
+			</panel>
+		</tab>
+		<panel locate="Center" type="BorderLayout">
+			<box locate="North" length="20" />
+			<box locate="South" length="25" />
+			<panel locate="East" type="BorderLayout">
+				<panel locate="North" type="BorderLayout">
+					<panel locate="South" type="BorderLayout">
+						<panel locate="Center" type="BorderLayout">
+							<panel locate="North" type="BorderLayout">
+								<component locate="West">
+									<driver id="date">common.gui.components.GenericData</driver>
+									<parameters>
+										<arg attribute="keySQL">SEL0177</arg>
+										<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+										<subarg>
+											<arg attribute="label">DATE</arg>
+											<arg attribute="format">TEXT</arg>
+											<arg attribute="size">9</arg>
+											<arg attribute="maxlength">50</arg>
+											<arg attribute="enabled">false</arg>
+											<arg attribute="return">false</arg>
+											<arg attribute="clean">true</arg>
+											<arg attr1ibute="exportValue">fechai</arg>
+											<arg attribute="printable">true</arg>
+										</subarg>
+									</parameters>
+								</component>
+								<panel locate="Center" type="BorderLayout">
+									<component locate="West">
+										<driver id="credit">common.gui.components.GenericData</driver>
+										<parameters>
+											<arg attribute="keySQL">DGSEL0081</arg>
+											<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+											<subarg>
+												<arg attribute="label">CREDIT</arg>
+												<arg attribute="format">TEXT</arg>
+												<arg attribute="size">3</arg>
+												<arg attribute="maxlength">10</arg>
+												<arg attribute="exportValue">dcredit</arg>
+												<arg attribute="clean">true</arg>
+												<arg attribute="printable">true</arg>
+												<arg attribute="enabled">false</arg>
+											</subarg>
+										</parameters>
+									</component>
+									<panel locate="Center" type="BorderLayout">
+										<panel locate="Center" type="FlowLayout" />
+										<component locate="West">
+											<driver id="vencimiento">common.gui.components.GenericData</driver>
+											<parameters>
+												<arg attribute="keySQL">DGSEL0083</arg>
+												<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+												<subarg>
+													<arg attribute="label">DEFEAT</arg>
+													<arg attribute="format">TEXT</arg>
+													<arg attribute="size">9</arg>
+													<arg attribute="maxlength">50</arg>
+													<arg attribute="enabled">false</arg>
+													<arg attribute="return">false</arg>
+													<arg attribute="clean">true</arg>
+													<arg attribute="calculateDate">fechai+dcredit</arg>
+													<arg attribute="dateFormat">yyyy-MM-dd</arg>
+													<arg attribute="printable">true</arg>
+												</subarg>
+											</parameters>
+										</component>
+									</panel>
+									<box locate="East" width="30" />
+								</panel>
+							</panel>
+							<box locate="West" width="60" />
+							<box locate="East" width="60" />
+							<panel locate="Center" type="BorderLayout">
+								<panel locate="West" type="GridLayout" rows="4" cols="1">
+									<component>
+										<driver>common.gui.components.XMLLabel</driver>
+										<parameters>
+											<arg attribute="text">Fac. Proveedor</arg>
+											<arg attribute="alignment">0</arg>
+											<arg attribute="font">Dialog,0,16</arg>
+										</parameters>
+									</component>
+									<component>
+										<driver>common.gui.components.XMLLabel</driver>
+										<parameters>
+											<arg attribute="text">Nro. Documento</arg>
+											<arg attribute="alignment">0</arg>
+											<arg attribute="font">Dialog,0,16</arg>
+										</parameters>
+									</component>
+									<component>
+										<driver>common.gui.components.XMLLabel</driver>
+										<parameters>
+											<arg attribute="text">Cantidades</arg>
+											<arg attribute="alignment">0</arg>
+											<arg attribute="font">Dialog,0,16</arg>
+										</parameters>
+									</component>
+									<component>
+										<driver>common.gui.components.XMLLabel</driver>
+										<parameters>
+											<arg attribute="text">TOTAL</arg>
+											<arg attribute="alignment">0</arg>
+											<arg attribute="font">Dialog,0,16</arg>
+										</parameters>
+									</component>
+								</panel>
+								<panel locate="Center" type="GridLayout" rows="4" cols="1">
+									<component locate="Center">
+										<driver id="fac_pro">client.gui.components.TableDataFields</driver>
+										<parameters>
+											<arg attribute="Panel">false</arg>
+											<arg attribute="keySQL">DGSEL0088</arg>
+											<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+											<subarg>
+												<arg attribute="format">TEXT</arg>
+												<arg attribute="size">9</arg>
+												<arg attribute="maxlength">50</arg>
+												<arg attribute="font">Dialog,0,18</arg>
+												<arg attribute="foreground">249,87,87</arg>
+												<arg attribute="background">114,141,171</arg>
+												<arg attribute="alignment">RIGHT</arg>
+												<arg attribute="enabled">false</arg>
+												<arg attribute="printable">true</arg>
+											</subarg>
+										</parameters>
+									</component>
+									<component locate="Center">
+										<driver id="info_documento">client.gui.components.TableDataFields</driver>
+										<parameters>
+											<arg attribute="Panel">false</arg>
+											<subarg>
+												<arg attribute="format">TEXT</arg>
+												<arg attribute="size">9</arg>
+												<arg attribute="maxlength">15</arg>
+												<arg attribute="enabled">true</arg>
+												<arg attribute="font">Dialog,1,13</arg>
+												<arg attribute="foreground">249,87,87</arg>
+												<arg attribute="background">114,141,171</arg>
+												<arg attribute="alignment">RIGHT</arg>
+												<arg attribute="idDocument">EA</arg>
+												<arg attribute="constantValue">EA</arg>
+												<arg attribute="return">false</arg>
+												<arg attribute="sqlCode">MTSEL0149</arg>
+												<arg attribute="sqlCode">SEL0169</arg>
+												<arg attribute="sqlCode">SEL0177</arg>
+												<arg attribute="sqlCode">DGSEL0081</arg>
+												<arg attribute="sqlCode">DGSEL0083</arg>
+												<arg attribute="sqlCode">DGSEL0088</arg>
+												<arg attribute="sqlCode">DGSEL0021</arg>
+												<arg attribute="sqlCode">DGSEL0150</arg>
+												<arg attribute="sqlCode">MTSEL0150</arg>
+												<arg attribute="printable">true</arg>
+											</subarg>
+										</parameters>
+									</component>
+									<component locate="Center">
+										<driver id="cantidades">client.gui.components.TableDataFields</driver>
+										<parameters>
+											<arg attribute="Panel">false</arg>
+											<subarg>
+												<arg attribute="format">TEXT</arg>
+												<arg attribute="size">9</arg>
+												<arg attribute="maxlength">15</arg>
+												<arg attribute="enabled">false</arg>
+												<arg attribute="font">Dialog,1,13</arg>
+												<arg attribute="background">114,141,171</arg>
+												<arg attribute="foreground">0,0,0</arg>
+												<arg attribute="alignment">RIGHT</arg>
+												<arg attribute="totalCol">f</arg>
+												<arg attribute="exportValue">cantidades</arg>
+												<arg attribute="return">false</arg>
+												<arg attribute="printable">true</arg>
+											</subarg>
+										</parameters>
+									</component>
+									<component locate="Center">
+										<driver id="total">client.gui.components.TableDataFields</driver>
+										<parameters>
+											<arg attribute="Panel">false</arg>
+											<subarg>
+												<arg attribute="format">NUMERIC</arg>
+												<arg attribute="size">9</arg>
+												<arg attribute="maxlength">15</arg>
+												<arg attribute="enabled">false</arg>
+												<arg attribute="font">Dialog,0,18</arg>
+												<arg attribute="foreground">87,244,249</arg>
+												<arg attribute="background">114,141,171</arg>
+												<arg attribute="alignment">RIGHT</arg>
+												<arg attribute="totalCol">n</arg>
+												<arg attribute="return">false</arg>
+											</subarg>
+										</parameters>
+									</component>
+								</panel>
+							</panel>
+						</panel>
+					</panel>
+				</panel>
+			</panel>
+		</panel>
+	</panel>
+	<component locate="Center">
+		<driver>client.gui.components.TableFindData</driver>
+		<parameters>
+			<arg attribute="keySQL">MTSEL0149</arg>
+			<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+			<arg attribute="Query">SEL0167</arg>
+			<arg attribute="rows">300</arg>
+			<arg attribute="colorBackground">114,141,171</arg>
+			<arg attribute="colorSelected">68,117,171</arg>
+			<arg attribute="protectSelected">true</arg>
+			<arg attribute="exportTotalCol">l,netofact</arg>
+			<arg attribute="totales">f,j,k,l,m,n</arg>
+			<arg attribute="formula">j=f*g</arg>
+			<arg attribute="formula">k=i*j/100</arg>
+			<arg attribute="formula">l=j-k</arg>
+			<arg attribute="formula">n=l+l*h/100</arg>
+			<arg attribute="formula">m=n-l</arg>
+
+			<subarg><!-- a -->
+				<arg attribute="name">CODE</arg>
+				<arg attribute="length">90</arg>
+				<arg attribute="type">DATASEARCH</arg>
+				<arg attribute="sqlCombo">SEL0325</arg>
+				<arg attribute="keyDataSearch">searchProd</arg>
+				<arg attribute="repeatData">2</arg>
+				<arg attribute="noDataBeep">true</arg>
+				<arg attribute="noDataMessage">No se encontro registros</arg>
+				<arg attribute="selectedIndex">1</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="exportValue">nomprod</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!-- b -->
+				<arg attribute="name">Referencia</arg>
+				<arg attribute="length">70</arg>
+				<arg attribute="type">STRING</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">0</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!-- c -->
+				<arg attribute="name">DESCRIPCION</arg>
+				<arg attribute="length">240</arg>
+				<arg attribute="type">STRING</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">1</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!-- d -->
+				<arg attribute="name">Color</arg>
+				<arg attribute="length">60</arg>
+				<arg attribute="type">STRING</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">2</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!-- e -->
+				<arg attribute="name">Talla</arg>
+				<arg attribute="length">40</arg>
+				<arg attribute="type">STRING</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">3</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!--  f -->
+				<arg attribute="name">CANTIDAD</arg>
+				<arg attribute="length">70</arg>
+				<arg attribute="type">INTEGER</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="returnCol">4</arg>
+				<arg attribute="clean">false</arg>
+				<arg attribute="defaultValue">1</arg>
+				<arg attribute="printable">true</arg>
+				<arg attribute="nameField">cantidad</arg>
+			</subarg>
+			<subarg><!-- g -->
+				<arg attribute="name">VUNITARIO</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="returnCol">3</arg>
+				<arg attribute="printable">true</arg>
+				<arg attribute="nameField">pcosto</arg>
+			</subarg>
+			<subarg><!-- h -->
+				<arg attribute="name">PIVA</arg>
+				<arg attribute="length">50</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="queryCol">5</arg>
+				<arg attribute="returnCol">2</arg>
+			</subarg>
+			<subarg><!-- i -->
+				<arg attribute="name">PDCTO</arg>
+				<arg attribute="length">50</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="returnCol">7</arg>
+			</subarg>
+			<subarg><!-- j -->
+				<arg attribute="name">STOTAL</arg>
+				<arg attribute="length">90</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="printable">true</arg>
+			</subarg>
+			<subarg><!-- k -->
+				<arg attribute="name">DESCUENTO</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">0</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="returnCol">10</arg>
+				<arg attribute="nameField">descuentos</arg>
+			</subarg>
+			<subarg><!-- l -->
+				<arg attribute="name">NETO</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="returnCol">8</arg>
+			</subarg>
+			<subarg><!-- m -->
+				<arg attribute="name">TIVA</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="returnCol">9</arg>
+			</subarg>
+			<subarg><!-- n -->
+				<arg attribute="name">TOTAL</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">0</arg>
+				<arg attribute="enabled">false</arg>
+			</subarg>
+			<subarg><!-- o -->
+				<arg attribute="name">FACTORC</arg>
+				<arg attribute="length">0</arg>
+				<arg attribute="type">INTEGER</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">3</arg>
+				<arg attribute="sqlCombo">DGSEL0043</arg>
+				<arg attribute="importValue">id_prod_serv</arg>
+				<arg attribute="importValue">uventa</arg>
+				<arg attribute="returnCol">11</arg>
+			</subarg>
+			<subarg><!-- p -->
+				<arg attribute="name">PCOMPRA</arg>
+				<arg attribute="length">0</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="queryCol">4</arg>
+			</subarg>
+			<subarg>
+				<arg attribute="name">ID</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">STRING</arg>
+				<arg attribute="enabled">false</arg>
+				<arg attribute="queryCol">0</arg>
+				<arg attribute="returnCol">0</arg>
+				<arg attribute="nameField">idProducto</arg>
+				<arg attribute="exportValue">id_prod_serv</arg>
+			</subarg>
+			<subarg>
+				<arg attribute="name">PIVAC</arg>
+				<arg attribute="length">50</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">true</arg>
+				<arg attribute="queryCol">6</arg>
+				<arg attribute="returnCol">12</arg>
+			</subarg>
+			<subarg>
+				<arg attribute="name">TIVAC</arg>
+				<arg attribute="length">80</arg>
+				<arg attribute="type">DECIMAL</arg>
+				<arg attribute="roundDecimal">2</arg>
+				<arg attribute="enabled">false</arg>
+			</subarg>
+		</parameters>
+	</component>
+	<panel locate="South" type="BorderLayout">
+		<panel locate="East" type="BorderLayout">
+			<box locate="East" width="10" />
+			<component locate="Center">
+				<driver id="totalValues">client.gui.components.TableDataFields</driver>
+				<parameters>
+					<arg attribute="Panel">false</arg>
+					<subarg>
+						<arg attribute="label">STOTAL</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="totalCol">j</arg>
+						<arg attribute="return">false</arg>
+						<arg attribute="printable">true</arg>
+					</subarg>
+					<subarg>
+						<arg attribute="label">PDCTO</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="keyExternalValue">z</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="return">false</arg>
+						<arg attribute="nullValue">true</arg>
+						<arg attribute="enabled">false</arg>
+					</subarg>
+					<subarg>
+						<arg attribute="label">TDCTO</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="totalCol">k</arg>
+						<arg attribute="return">false</arg>
+						<arg attribute="printable">true</arg>
+					</subarg>
+					<subarg>
+						<arg attribute="label">NETO</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="totalCol">l</arg>
+						<arg attribute="return">false</arg>
+					</subarg>
+					<subarg>
+						<arg attribute="label">IVA</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="totalCol">m</arg>
+						<arg attribute="return">false</arg>
+						<arg attribute="printable">true</arg>
+					</subarg>
+					<subarg>
+						<arg attribute="label">TOTAL</arg>
+						<arg attribute="format">NUMERIC</arg>
+						<arg attribute="size">10</arg>
+						<arg attribute="maxlength">15</arg>
+						<arg attribute="exportValue">totalfact</arg>
+						<arg attribute="enabled">false</arg>
+						<arg attribute="alignment">RIGHT</arg>
+						<arg attribute="totalCol">n</arg>
+						<arg attribute="exportField">2</arg>
+						<arg attribute="background">114,141,171</arg>
+						<arg attribute="printable">true</arg>
+					</subarg>
+				</parameters>
+			</component>
+		</panel>
+		<panel locate="West" type="BorderLayout">
+			<panel locate="West" type="BorderLayout">
+				<panel locate="West" type="FlowLayout" />
+				<panel locate="East" type="FlowLayout" />
+				<component locate="North">
+					<driver>common.gui.components.XMLLabel</driver>
+					<parameters>
+						<arg attribute="text">Observaciones</arg>
+						<arg attribute="alignment">0</arg>
+					</parameters>
+				</component>
+				<component locate="Center">
+					<driver>common.gui.components.XMLTextArea</driver>
+					<parameters>
+						<arg attribute="rows">2</arg>
+						<arg attribute="cols">30</arg>
+						<arg attribute="enabled">false</arg>
+					</parameters>
+				</component>
+			</panel>
+			<panel locate="South" type="BorderLayout">
+				<component locate="West">
+					<driver id="estado">common.gui.components.XMLLabel</driver>
+					<parameters>
+						<arg attribute="keySQL">DGSEL0021</arg>
+						<arg attribute="driverEvent" id="info_documento">client.gui.components.TableDataFields</arg>
+						<arg attribute="text">:</arg>
+						<arg attribute="alignment">LEFT</arg>
+					</parameters>
+				</component>
+				<component locate="Center">
+					<driver>common.gui.components.ButtonsPanel</driver>
+					<parameters>
+						<subarg>
+							<arg attribute="label">PAGO</arg>
+							<arg attribute="icon">/icons/ico_conciliaciones.png</arg>
+							<arg attribute="keyStroke">F7</arg>
+						</subarg>
+						<arg>NEW</arg>
+						<arg>EXIT</arg>
+					</parameters>
+					<events>
+						<object>
+							<name>PAGO</name>
+							<component>
+								<driver>gfforma</driver>
+								<method>setVisible</method>
+								<parameters>
+									<arg>TRUE</arg>
+								</parameters>
+							</component>
+						</object>
+						<object>
+							<name>NEW</name>
+							<!--  Limpiando forma principal -->
+							<component>
+								<driver>client.gui.components.FindThird</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver>client.gui.components.TableFindData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="estado">common.gui.components.XMLLabel</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="date">common.gui.components.GenericData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="fac_pro">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="credit">common.gui.components.GenericData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="vencimiento">common.gui.components.GenericData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="info_documento">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="totalValues">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver>common.gui.components.XMLTextArea</driver>
+								<method>clean</method>
+							</component>
+							<!--  Limpiando componentes tabla general -->
+							<component>
+								<driver id="tfacprov">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretfte">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretiva">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretica">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="vpago">common.gui.components.GenericData</driver>
+								<method>clean</method>
+							</component>
+							<!--  Limpiando tablas de retenciones  -->
+							<component>
+								<driver id="base">client.gui.components.TableFindData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretbase">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="retiva">client.gui.components.TableFindData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretiva">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="retica">client.gui.components.TableFindData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="tretica">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="guia">common.gui.components.GenericData</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="cantidades">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<component>
+								<driver id="total">client.gui.components.TableDataFields</driver>
+								<method>clean</method>
+							</component>
+							<!--  limpiando llaves externas -->
+							<component>
+								<driver>this</driver>
+								<method>cleanExternalValues</method>
+							</component>
+							<component>
+								<driver id="pago">common.gui.components.ButtonsPanel</driver>
+								<method>setEnabled</method>
+								<parameters>
+									<arg attribute="button">PRINT</arg>
+									<arg attribute="state">true</arg>
+								</parameters>
+							</component>
+							<component>
+								<driver id="pago1">common.gui.components.ButtonsPanel</driver>
+								<method>setEnabled</method>
+								<parameters>
+									<arg attribute="button">PRINT1</arg>
+									<arg attribute="state">true</arg>
+								</parameters>
+							</component>
+							<!-- Se pocisiona el tabbedPanel en el primer tab -->
+							<component>
+								<driver id="fpago">this</driver>
+								<method>setSelectedIndex</method>
+								<parameters>
+									<arg attribute="index">0</arg>
+								</parameters>
+							</component>
+						</object>
+					</events>
+				</component>
+			</panel>
+		</panel>
+	</panel>
+	<FORM>
+		<preferences>
+			<size width="770" height="500" />
+			<name>PAYMENTFORM</name>
+			<icon>PAGO</icon>
+			<iconificable />
+			<resizable />
+			<closable />
+			<id>gfforma</id>
+			<visible>false</visible>
+		</preferences>
+		<!--  Componente Oculto -->
+		<panel locate="West" type="FlowLayout" />
+		<panel locate="East" type="FlowLayout" />
+		<tab locate="Center" id="fpago">
+			<panel name="GENERAL" icon="PAGO" type="BorderLayout">
+				<panel locate="West" type="FlowLayout" />
+				<panel locate="East" type="FlowLayout" />
+				<box locate="North" length="50" />
+				<panel locate="South" type="FlowLayout" />
+				<panel locate="Center" type="FlowLayout" align="center">
+					<panel locate="Center" type="BorderLayout">
+						<panel locate="West" type="GridLayout" rows="8" cols="1">
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">TOTAL</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,1,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">Total Retenciones</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,1,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">- Retencion en la Fuente</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,0,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">- Retencion de I.V.A</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,0,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">- Retencion de I.C.A.</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,0,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">Valor Neto Compra</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,1,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">+ I.V.A. al Reg. Simplificado</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,0,16</arg>
+								</parameters>
+							</component>
+							<component locate="North">
+								<driver>common.gui.components.XMLLabel</driver>
+								<parameters>
+									<arg attribute="text">Total Factura Compra</arg>
+									<arg attribute="alignment">0</arg>
+									<arg attribute="font">Dialog,1,16</arg>
+								</parameters>
+							</component>
+						</panel>
+						<panel locate="Center" type="GridLayout" rows="8" cols="2">
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="tfacprov">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<subarg>
+										<arg attribute="name">TOTAL</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">11</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="calculateExportValue">gtrans+gvarios+totalfact</arg>
+										<arg attribute="exportValue">totalfprov</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="tretenciones">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<subarg>
+										<arg attribute="name">TRETENCIONES</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">10</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="printable">true</arg>
+										<arg attribute="calculateExportValue">retfte+retiva+retica</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<component locate="Center">
+								<driver id="tretfte">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">base</arg>
+									<subarg>
+										<arg attribute="name">RETFTE</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">10</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="exportValue">retfte</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="tretiva">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retiva</arg>
+									<subarg>
+										<arg attribute="name">RETIVA</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">10</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="exportValue">retiva</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="tretica">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retica</arg>
+									<subarg>
+										<arg attribute="name">RETICA</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">10</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="exportValue">retica</arg>
+										<arg attribute="totalCol">e</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<panel type="FlowLayout" />
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="vpago">common.gui.components.GenericData</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<subarg>
+										<arg attribute="name">VR_PAGAR</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">11</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="calculateExportValue">(gtrans+gvarios+totalfact)-(trfuente+triva+trica)</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="printable">true</arg>
+										<arg attribute="exportValue">vrpag</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<component locate="Center">
+								<driver id="tretivasp">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retivas</arg>
+									<subarg>
+										<arg attribute="name">RETENCIONES</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">10</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+									</subarg>
+								</parameters>
+							</component>
+							<panel type="FlowLayout" />
+							<panel type="FlowLayout" />
+							<component locate="Center">
+								<driver id="tfactura">common.gui.components.GenericData</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<subarg>
+										<arg attribute="name">VR_PAGAR</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">11</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="calculateExportValue">(gtrans+gvarios+totalfact)-(trfuente+triva+trica)+trivas</arg>
+										<arg attribute="font">Dialog,0,18</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="foreground">194,202,230</arg>
+										<arg attribute="background">0,0,0</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="exportValue">vrpag</arg>
+									</subarg>
+								</parameters>
+							</component>
+						</panel>
+					</panel>
+				</panel>
+			</panel>
+			<panel name="RETENCIONES" icon="RETENCIONES" type="BorderLayout">
+				<panel locate="Center" type="GridLayout" rows="4" cols="1">
+					<panel locate="Center" type="BorderLayout">
+						<component locate="North">
+							<driver>common.gui.components.XMLLabel</driver>
+							<parameters>
+								<arg attribute="text">Retenciones en la Fuente</arg>
+								<arg attribute="alignment">0</arg>
+							</parameters>
+						</component>
+						<component locate="Center">
+							<driver id="base">client.gui.components.TableFindData</driver>
+							<parameters>
+								<arg attribute="keySQL">SEL0209</arg>
+								<arg attribute="driverEvent">client.gui.components.FindThird</arg>
+								<arg attribute="rows">6</arg>
+								<arg attribute="colorBackground">230,219,194</arg>
+								<arg attribute="colorSelected">219,176,202</arg>
+								<arg attribute="protectSelected">true</arg>
+								<arg attribute="totales">e</arg>
+								<arg attribute="returnNullValue">true</arg>
+								<arg attribute="importTotalCol">w,netofact</arg>
+								<arg attribute="formula">e=w*d/100</arg>
+								<arg attribute="enabled">false</arg>
+								<subarg>
+									<arg attribute="name">CUENTA</arg>
+									<arg attribute="length">120</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">true</arg>
+									<arg attribute="returnCol">0</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">NAME</arg>
+									<arg attribute="length">290</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">false</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">BASE</arg>
+									<arg attribute="length">90</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">3</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">%</arg>
+									<arg attribute="length">70</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">4</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">VALUE</arg>
+									<arg attribute="length">140</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">1</arg>
+									<arg attribute="importValue">stotal</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">id_cta</arg>
+									<arg attribute="length">0</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">2</arg>
+								</subarg>
+							</parameters>
+						</component>
+						<panel locate="South" type="BorderLayout">
+							<component locate="East">
+								<driver id="tretbase">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">base</arg>
+									<subarg>
+										<arg attribute="label">TOTAL</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">15</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="exportValue">trfuente</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="returnNullValue">true</arg>
+									</subarg>
+								</parameters>
+							</component>
+						</panel>
+					</panel>
+					<panel locate="Center" type="BorderLayout">
+						<component locate="North">
+							<driver>common.gui.components.XMLLabel</driver>
+							<parameters>
+								<arg attribute="text">Retenciones de I.V.A</arg>
+								<arg attribute="alignment">0</arg>
+							</parameters>
+						</component>
+						<component locate="Center">
+							<driver id="retiva">client.gui.components.TableFindData</driver>
+							<parameters>
+								<arg attribute="keySQL">SEL0210</arg>
+								<arg attribute="driverEvent">client.gui.components.FindThird</arg>
+								<arg attribute="rows">6</arg>
+								<arg attribute="colorBackground">230,219,194</arg>
+								<arg attribute="colorSelected">219,176,202</arg>
+								<arg attribute="protectSelected">true</arg>
+								<arg attribute="totales">e</arg>
+								<arg attribute="returnNullValue">true</arg>
+								<arg attribute="importTotalCol">w,tiva</arg>
+								<arg attribute="importTotalCol">q,stotal</arg>
+								<arg attribute="beanshell">e=q&gt;c?(w*d)/100:0</arg>
+								<arg attribute="enabled">false</arg>
+								<subarg>
+									<arg attribute="name">CUENTA</arg>
+									<arg attribute="length">120</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">true</arg>
+									<arg attribute="returnCol">0</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">NAME</arg>
+									<arg attribute="length">290</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">false</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">BASE</arg>
+									<arg attribute="length">90</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">3</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">%</arg>
+									<arg attribute="length">70</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">4</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">VALUE</arg>
+									<arg attribute="length">140</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">1</arg>
+									<arg attribute="importValue">stotal</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">id_cta</arg>
+									<arg attribute="length">0</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">2</arg>
+								</subarg>
+							</parameters>
+						</component>
+						<panel locate="South" type="BorderLayout">
+							<component locate="East">
+								<driver id="tretiva">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retiva</arg>
+									<subarg>
+										<arg attribute="label">TOTAL</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">15</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="exportValue">triva</arg>
+										<arg attribute="returnNullValue">true</arg>
+									</subarg>
+								</parameters>
+							</component>
+						</panel>
+					</panel>
+					<panel locate="Center" type="BorderLayout">
+						<component locate="North">
+							<driver>common.gui.components.XMLLabel</driver>
+							<parameters>
+								<arg attribute="text">I.V.A Regimen Simplificado</arg>
+								<arg attribute="alignment">0</arg>
+							</parameters>
+						</component>
+						<component locate="Center">
+							<driver id="retivas">client.gui.components.TableFindData</driver>
+							<parameters>
+								<arg attribute="keySQL">DGSEL0074</arg>
+								<arg attribute="driverEvent">client.gui.components.FindThird</arg>
+								<arg attribute="rows">6</arg>
+								<arg attribute="colorBackground">230,219,194</arg>
+								<arg attribute="colorSelected">219,176,202</arg>
+								<arg attribute="protectSelected">true</arg>
+								<arg attribute="totales">e</arg>
+								<arg attribute="returnNullValue">true</arg>
+								<arg attribute="importTotalCol">w,tiva</arg>
+								<arg attribute="importTotalCol">q,stotal</arg>
+								<arg attribute="beanshell">e=q&gt;c?(w*d)/100:0</arg>
+								<arg attribute="enabled">false</arg>
+								<subarg>
+									<arg attribute="name">CUENTA</arg>
+									<arg attribute="length">120</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">true</arg>
+									<arg attribute="returnCol">0</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">NAME</arg>
+									<arg attribute="length">290</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">false</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">BASE</arg>
+									<arg attribute="length">90</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">3</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">%</arg>
+									<arg attribute="length">70</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">4</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">VALUE</arg>
+									<arg attribute="length">140</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">1</arg>
+									<arg attribute="importValue">stotal</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">id_cta</arg>
+									<arg attribute="length">0</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">2</arg>
+								</subarg>
+							</parameters>
+						</component>
+						<panel locate="South" type="BorderLayout">
+							<component locate="East">
+								<driver id="tretivas">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retivas</arg>
+									<subarg>
+										<arg attribute="label">TOTAL</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">15</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="exportValue">trivas</arg>
+										<arg attribute="returnNullValue">true</arg>
+									</subarg>
+								</parameters>
+							</component>
+						</panel>
+					</panel>
+					<panel locate="Center" type="BorderLayout">
+						<component locate="North">
+							<driver>common.gui.components.XMLLabel</driver>
+							<parameters>
+								<arg attribute="text">Retenciones de I.C.A.</arg>
+								<arg attribute="alignment">0</arg>
+							</parameters>
+						</component>
+						<component locate="Center">
+							<driver id="retica">client.gui.components.TableFindData</driver>
+							<parameters>
+								<arg attribute="keySQL">SEL0211</arg>
+								<arg attribute="driverEvent">client.gui.components.FindThird</arg>
+								<arg attribute="rows">6</arg>
+								<arg attribute="colorBackground">230,219,194</arg>
+								<arg attribute="colorSelected">219,176,202</arg>
+								<arg attribute="protectSelected">true</arg>
+								<arg attribute="totales">e</arg>
+								<arg attribute="returnNullValue">true</arg>
+								<arg attribute="importTotalCol">w,stotal</arg>
+								<arg attribute="beanshell">e=w&gt;c?(w*d)/1000:0</arg>
+								<arg attribute="enabled">false</arg>
+								<subarg>
+									<arg attribute="name">CUENTA</arg>
+									<arg attribute="length">120</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">true</arg>
+									<arg attribute="returnCol">0</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">NAME</arg>
+									<arg attribute="length">290</arg>
+									<arg attribute="type">STRING</arg>
+									<arg attribute="enabled">false</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">BASE</arg>
+									<arg attribute="length">90</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">3</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">%</arg>
+									<arg attribute="length">70</arg>
+									<arg attribute="type">DECIMAL</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">4</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">VALUE</arg>
+									<arg attribute="length">140</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">1</arg>
+									<arg attribute="importValue">stotal</arg>
+								</subarg>
+								<subarg>
+									<arg attribute="name">id_cta</arg>
+									<arg attribute="length">0</arg>
+									<arg attribute="type">INTEGER</arg>
+									<arg attribute="enabled">false</arg>
+									<arg attribute="returnCol">2</arg>
+								</subarg>
+							</parameters>
+						</component>
+						<panel locate="South" type="BorderLayout">
+							<component locate="East">
+								<driver id="tretica">client.gui.components.TableDataFields</driver>
+								<parameters>
+									<arg attribute="Panel">false</arg>
+									<arg attribute="linkTable">retica</arg>
+									<subarg>
+										<arg attribute="label">TOTAL</arg>
+										<arg attribute="format">NUMERIC</arg>
+										<arg attribute="size">15</arg>
+										<arg attribute="maxlength">15</arg>
+										<arg attribute="enabled">false</arg>
+										<arg attribute="alignment">RIGHT</arg>
+										<arg attribute="totalCol">e</arg>
+										<arg attribute="exportValue">trica</arg>
+										<arg attribute="returnNullValue">true</arg>
+									</subarg>
+								</parameters>
+							</component>
+						</panel>
+					</panel>
+				</panel>
+			</panel>
+		</tab>
+		<panel locate="South" type="FlowLayout">
+			<component locate="West">
+				<driver id="pago1">common.gui.components.ButtonsPanel</driver>
+				<parameters>
+					<subarg>
+						<arg attribute="label">PRINT1</arg>
+						<arg attribute="icon">/icons/ico_impresora.png</arg>
+					</subarg>
+				</parameters>
+				<events>
+					<object>
+						<name>PRINT1</name>
+						<action>
+							<type>transaction</type>
+							<component>
+								<driver id="pago1">common.gui.components.ButtonsPanel</driver>
+								<method>setEnabled</method>
+								<parameters>
+									<arg attribute="button">PRINT1</arg>
+									<arg attribute="state">false</arg>
+								</parameters>
+							</component>
+						</action>
+						<action>
+							<type>printer</type>
+							<printerTemplate>/graphics/TSEntradaAlmacenResumida.xml</printerTemplate>
+							<component>
+								<driver id="info_documento">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="cantidades">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="guia">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver>client.gui.components.FindThird</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="info_documento">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="fac_pro">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="date">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="credit">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="vencimiento">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="totalValues">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="tretenciones">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="vpago">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+						<!-- 	<component>
+								<driver>client.gui.components.TableFindData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver>common.gui.components.XMLTextArea</driver>
+								<method>getPrintPackage</method>
+							</component>  -->
+						</action>
+					</object>
+				</events>
+			</component>
+
+			<component locate="Center">
+				<driver id="pago">common.gui.components.ButtonsPanel</driver>
+				<parameters>
+					<arg>PRINT</arg>
+					<subarg>
+						<arg attribute="label">SALIR</arg>
+						<arg attribute="icon">/icons/ico_cancelar.png</arg>
+						<arg attribute="keyStroke">F4</arg>
+					</subarg>
+				</parameters>
+				<events>
+					<object>
+						<name>PRINT</name>
+						<action>
+							<type>transaction</type>
+							<component>
+								<driver id="pago">common.gui.components.ButtonsPanel</driver>
+								<method>setEnabled</method>
+								<parameters>
+									<arg attribute="button">PRINT</arg>
+									<arg attribute="state">false</arg>
+								</parameters>
+							</component>
+						</action>
+						<action>
+							<type>printer</type>
+							<printerTemplate>/graphics/TSEntradaAlmacen.xml</printerTemplate>
+							<component>
+								<driver id="info_documento">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="cantidades">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="guia">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver>client.gui.components.FindThird</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="info_documento">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="fac_pro">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="date">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="credit">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="vencimiento">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="totalValues">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="tretenciones">client.gui.components.TableDataFields</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver id="vpago">common.gui.components.GenericData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver>client.gui.components.TableFindData</driver>
+								<method>getPrintPackage</method>
+							</component>
+							<component>
+								<driver>common.gui.components.XMLTextArea</driver>
+								<method>getPrintPackage</method>
+							</component>
+						</action>
+					</object>
+					<object>
+						<name>SALIR</name>
+						<component>
+							<driver>gfforma</driver>
+							<method>setVisible</method>
+							<parameters>
+								<arg>false</arg>
+							</parameters>
+						</component>
+					</object>
+				</events>
+			</component>
+		</panel>
+	</FORM>
+</FORM>

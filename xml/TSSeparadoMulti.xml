@@ -8,25 +8,22 @@
    En esta plantilla es el primer paquete que se recibe luego del metadata
 -->
 
-<emaku_template type="POSTSCRIPT" requestNumeration="true" copies="1" silent="false" printer="Deskjet_3900">
+<emaku_template type="POSTSCRIPT" requestNumeration="false" copies="1" silent="false" printer="Deskjet_3900">
    <settings width="220" height="10000" />
+
    <metadata>
-      <barcodeImage row="110" col="20" />
       <font row="0" col="0" name="Sans" size="10" />
       <field row="90" center="70" type="STRING" importValue="true">nombre_suc</field>
       <font row="0" col="0" name="Sans" size="7" />
       <field row="100" center="190" type="STRING">NIT: 1016032169-2 REGIMEN COMUN</field>
       
       <font row="0" col="0" name="Sans" size="8" />
-
-      <field row="200" col="15" type="STRING">Factura de Venta</field>
+      <field row="200" col="15" type="STRING">Separado Mercancia</field>
       <field row="210" col="15" type="STRING">Numero:</field>
 
       <field row="220" col="15" type="STRING">Fecha:</field>
       <field row="230" col="15" type="STRING">Cajero:</field>
       <field row="240" col="15" type="STRING">Hora:</field>
-      <ndocument row="210" col="87" />
-      <time row="240" col="50" />
       <!-- Informacion detallada de productos -->
       <line row="250" col="2" row2="250" col2="190" />
       <field row="260" col="13" type="STRING">Código</field>
@@ -37,23 +34,35 @@
       <field row="280" col="170" type="STRING">T. USD</field>
       <line row="290" col="2" row2="290" col2="200" />
    </metadata>
-   0 <!-- logo sucursal -->
+
+
+    <!-- logo sucursal -->
        <!-- <package>
       <dbimage row="190" width = "150" height= "80"  col="15" type="STRING" />
         </package>-->
-  1
-   <package>
-      <field row="210" col="53" type="STRING" />
-   </package>
-   2
+  0
+  <package>
+          <generateBarCodeImage row="110" col="20" width="10" type="NUMERIC" mask="0000000000" />
+  </package>
+
+	0<!--Numero fac-->
+	 <package>
+        <field row="210" col="100" width="10" type="NUMERIC" mask="0000000000" />
+    </package>
+
+	1<!--Hora-->
+	<package>
+          <field row="240" col="53" type="STRING" />
+  </package>
+   2 <!-- Fecha Factura -->
    <package>
       <field row="220" col="53" type="DATE" mask="EEEEEE dd MMMM yyyy" />
    </package>
-   3
+   3 <!-- Cajero -->
    <package>
       <field row="230" col="53" type="STRING" />
    </package>
-   4
+   4 <!-- Tabla principal productos -->
    <package>
       <subpackage rowInit="300" rowAcum="10">
          <field col="15" type="STRING" incrementRow="true" />
@@ -64,63 +73,47 @@
          <field col="190" width="13" type="NUMERIC" mask="###.##" />
       </subpackage>
    </package>
-   5
+   5 <!-- Linea -->
    <package>
       <line row="last" rowAcum="20" col="2" row2="last" col2="200" />
    </package>  
-   6
+      6 <!-- Total -->
    <package>
       <field textLine="Total ......" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   7
+   7 <!-- Valor Separado -->
    <package>
-      <field textLine="Anticipos" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
+      <field textLine="Valor Separado" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>
-   8
+   8 <!-- Saldo Separado-->
+   <package>
+      <field textLine="Saldo Separado" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
+   </package>
+   9 <!-- Efectivo -->
    <package>
       <field textLine="Efectivo ......" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   9
+   10 <!-- Total pago tarjetas -->
    <package>
       <field textLine="Tarjetas ......" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   10
-   <package>
-      <field textLine="Credito ......" rowAcum="20" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
-   </package>  
-   11
+   11 <!-- Cambio -->
    <package>
       <field textLine="Cambio ......" rowAcum="15" textCol="12" fontName="Dialog" fontSize="14" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   12
+   12 <!-- Linea -->
    <package>
       <line rowAcum="12" row="last" col="2" row2="last" col2="200" />
-   </package>  
-   13
-   <package>
-      <field textLine="Base Impuesto                                 IVA 16%" rowAcum="12" textCol="13" row="last" col="200" type="STRING"/>
-   </package>  
-   14
-   <package>
-      <field textCol="30" row="last" col="60"  width="13" type="NUMERIC" mask="#,###,###.##"/>
-   </package>  
-   15
-   <package>
-      <field rowAcum="10" textCol="13" row="last" col="190"  width="13" type="NUMERIC" mask="#,###,###.##"/>
-   </package>  
-   16
-   <package>
-      <line row="last" rowAcum="20" col="2" row2="last" col2="200" />
-   </package>  
-   17
+   </package>      
+   13 <!-- Total articulos -->
    <package>
       <field textLine="Total Articulos:" rowAcum="15" textCol="13" fontName="Dialog" fontSize="12" fontStyle="0" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###" />
    </package>  
-   18
+   14 <!-- Linea -->
    <package>
       <line row="last" rowAcum="15" col="2" row2="last" col2="200" />
    </package>  
-   19
+  15<!-- Tercero -->
    <package validate="true">
       <field row="last" rowAcum="15"  col="15" type="STRING"/>
       <field row="last" rowAcum="15"  col="15" type="STRING"/>
@@ -128,44 +121,36 @@
       <field row="last" rowAcum="15"  col="15" type="STRING"/>
       <field row="last" rowAcum="15"  col="15" type="STRING"/>
    </package>
-   20
+   15a <!-- Linea -->
+   <package>
+      <line row="last" rowAcum="15" col="2" row2="last" col2="200" />
+   </package>  
+   16 <!-- Dias de credito -->
    <package validate="true">
-      <field row="last" textLine="DIAS DE CREDITO" rowAcum="15" textCol="13"  col="180" type="STRING"/>
+      <field row="last" textLine="DIAS DE CREDITO" fontName="Dialog" fontSize="10" fontStyle="0" rowAcum="15" textCol="13"  col="180" type="STRING"/>
    </package>
-   21
+
+   17 <!-- Vencimiento -->
    <package validate="true">
-      <field row="last"  textLine="VENCIMIENTO" rowAcum="15" textCol="13"  col="180"  type="STRING"/>
+      <field row="last"  textLine="VENCIMIENTO" fontName="Dialog" fontSize="12" fontStyle="0" rowAcum="15" textCol="13"  col="140"  type="STRING"/>
    </package>
-   22
+   18 <!-- Linea -->
    <package>
       <line row="last" rowAcum="20" col="2" row2="last" col2="200" />
    </package>  
-   23
+  19 <!-- TRM -->
    <package>
       <field textLine="TRM ......" rowAcum="15" textCol="13" fontName="Dialog" fontSize="12" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   24
+   20 <!-- Total USD -->
    <package>
       <field textLine="Total US $ ......" rowAcum="15" textCol="13" fontName="Dialog" fontSize="12" fontStyle="1" row="last" col="200" width="13" type="NUMERIC" mask="#,###,###.##" />
    </package>  
-   25 
+   21 <!-- Paquete blanco linea -->
    <package>
       <line row="last" rowAcum="20" col="2" row2="last" col2="200" />
-   </package>  
-   26
-   <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="10" textCol="5" col="15" type="STRING" />
-        </package>
-    27
-        <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" textLine="NUM. AUTORIZADA:" rowAcum="10" textCol="15" col="90" type="STRING" />
-        </package>
-    28
-        <package validate="true">
-                <field row="last" fontName="Dialog" fontSize="7" fontStyle="0" rowAcum="10" textCol="5" col="15" type="STRING" />
-        </package>
-
-    29
+   </package>        
+    22 <!-- Pie de pagina -->
    <package>
       <!--Campos de texto originalmente traidos de MT-->
 <text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">No se aceptan cambios de mercancía en promoción.</text>
@@ -179,6 +164,7 @@
 <text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">Para cualquier reclamación es necesario</text>
 <text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="15" row="last" col="8" type="STRING">presentar este documento.</text>
 
+
       <text rowAcum="10" row="last" col="15" type="STRING" importValue="true">direccion</text>
       <text rowAcum="10" row="last" col="15" type="STRING" importValue="true">telefono</text>
       <text rowAcum="10" row="last" col="15" type="STRING">davila-1234@hotmail.com</text>
@@ -189,4 +175,5 @@
       <text fontName="Dialog" fontSize="6" fontStyle="1" rowAcum="8" row="last" col="12" type="STRING">Factura Elaborada Con E-Maku</text>
       <text fontName="Dialog" fontSize="6" fontStyle="1" rowAcum="30" row="last" col="12" type="STRING">Licenciado Bajo GPL V 2.0</text>
    </package>
+
 </emaku_template>

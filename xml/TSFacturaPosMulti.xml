@@ -181,19 +181,20 @@
     30
    <package>
       <!--Campos de texto originalmente traidos de MT-->
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">No se aceptan cambios de mercancía en promoción.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Plazo máximo para cambio de mercancía 15 días.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Plazo máximo por reclamo frente a calidad 8 días.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">En ningún caso hay devolución de dinero.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Todo cambio se realiza siempre y cuando la prenda</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">este en perfecto estado y con su etiqueta.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">La mercancía separada no tiene cambios.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">No se aceptan retiros parciales en separados.</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="6" type="STRING">Para cualquier reclamación es necesario</text>
-<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="15" row="last" col="6" type="STRING">presentar este documento.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">No se aceptan cambios de mercancía en promoción.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">Plazo máximo para cambio de mercancía 15 días.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">Plazo máximo por reclamo frente a calidad 8 días.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">En ningún caso hay devolución de dinero.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">Todo cambio se realiza siempre y cuando la prenda</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">este en perfecto estado y con su etiqueta.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">La mercancía separada no tiene cambios.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">No se aceptan retiros parciales en separados.</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="10" row="last" col="8" type="STRING">Para cualquier reclamación es necesario</text>
+<text fontName="Dialog" fontSize="8" fontStyle="1" rowAcum="15" row="last" col="8" type="STRING">presentar este documento.</text>
 
 
       <text rowAcum="10" row="last" col="15" type="STRING" importValue="true">direccion</text>
+      <text rowAcum="10" row="last" col="15" type="STRING" importValue="true">telefono</text>
       <text rowAcum="10" row="last" col="15" type="STRING">davila-1234@hotmail.com</text>
       <text rowAcum="20" row="last" col="15" type="STRING" importValue="true">ciudad</text>
 

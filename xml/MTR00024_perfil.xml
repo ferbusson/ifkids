@@ -237,7 +237,6 @@
               <arg attribute="type">DECIMAL</arg>
               <arg attribute="clean">false</arg>
               <arg attribute="enabled">true</arg>
-              <arg attribute="returnCol">1</arg>
               <arg attribute="queryCol">6</arg>
             </subarg>
             <subarg><!-- 10 k -->
@@ -254,7 +253,7 @@
               <arg attribute="type">STRING</arg>
               <arg attribute="clean">false</arg>
               <arg attribute="enabled">false</arg>
-              <arg attribute="returnCol">2</arg>
+              <arg attribute="returnCol">1</arg>
               <arg attribute="queryCol">9</arg>
             </subarg>
             <subarg><!-- 12 m -->
@@ -284,6 +283,15 @@
               <arg attribute="type">STRING</arg>
               <arg attribute="clean">false</arg>
               <arg attribute="enabled">false</arg>
+            </subarg>
+            <subarg><!-- 11 l -->
+              <arg attribute="name">idcatalogo</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="returnCol">2</arg>
+              <arg attribute="queryCol">11</arg>
             </subarg>
           </parameters>
         </component>
