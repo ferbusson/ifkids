@@ -401,14 +401,14 @@
           <name>PRINT</name>
           <action>
             <type>transaction</type>
-            <!--<component>
-              <driver id="efectivos">client.gui.components.TableDataFields</driver>
-              <method>validPackage</method>
+            <component>
+              <driver id="pago">common.gui.components.ButtonsPanel</driver>
+              <method>setEnabled</method>
               <parameters>
-                <arg attribute="conditional"> (totalcompra*0.3) &lt;= efectivos </arg>
-                <arg attribute="errorMessage">El monto del separado debe ser igual o superior al 30% del valor de la compra</arg>
+                <arg attribute="button">PRINT</arg>
+                <arg attribute="state">false</arg>
               </parameters>
-            </component>-->
+            </component>
             <component>
               <driver>this</driver>
               <method>validMultiPackage</method>
@@ -471,6 +471,7 @@
                   <arg attribute="importValue">variableo</arg>
                   <arg attribute="importValue">cambio</arg>
                   <arg attribute="importValue">vrpag</arg>
+                  <arg attribute="importValue">trm</arg>
                 </subarg>
               </parameters>
             </component>
@@ -603,22 +604,12 @@
             <component>
               <driver id="productos">client.gui.components.TableFindData</driver>
               <method>getPackage</method>
-            </component>
-
-            <component>
-              <driver id="pago">common.gui.components.ButtonsPanel</driver>
-              <method>setEnabled</method>
-              <parameters>
-                <arg attribute="button">PRINT</arg>
-                <arg attribute="state">false</arg>
-              </parameters>
-            </component>
+            </component>            
           </action>
 
-          <!-- Impresion -->
           <action>
             <type>printer</type>
-            <printerTemplate>/plains/TNSeparados.xml</printerTemplate>
+            <printerTemplate>/graphics/TSSeparadoMulti.xml</printerTemplate>
             <component>
               <driver>gfforma</driver>
               <method>setVisible</method>
@@ -626,12 +617,13 @@
                 <arg>false</arg>
               </parameters>
             </component>
-            <!-- Fecha de factura -->
+
+            2<!-- Fecha de factura -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Cajero -->
+            3<!-- Cajero -->
             <component>
               <driver>this</driver>
               <method>getPrintPackage</method>
@@ -641,89 +633,62 @@
                 </subarg>
               </parameters>
             </component>
-            <!-- Tabla Principal de productos -->
+            4<!-- Tabla Principal de productos -->
             <component>
               <driver id="productos">client.gui.components.TableFindData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Paquete Blanco linea -->
+            5<!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            <!-- Total -->
+            6<!-- Total -->
             <component>
               <driver id="totalcompra">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Valor separado -->
+            7<!-- Valor separado -->
             <component>
-              <driver id="efectivos">client.gui.components.TableDataFields</driver>
+              <driver id="totalseparado1">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Saldo compra -->
+            8<!-- Saldo compra -->
             <component>
               <driver id="saldocompra">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Efectivo -->
+            9<!-- Efectivo -->
             <component>
               <driver id="fefectivo">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-
-            <!-- Total tarjetas credito -->
+            10<!-- Total tarjetas credito -->
             <component>
               <driver id="tcredito2">common.gui.components.EmakuTouchField</driver>
               <method>getPrintPackage</method>
             </component>
-
-            <!-- Cambio -->
+            11<!-- Cambio -->
             <component>
               <driver id="cambio">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Paquete Blanco linea -->
+            12<!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            <!-- Paquete Blanco Titulo -->
+            13<!-- Total articulos -->
             <component>
-              <driver id="date">common.gui.components.GenericData</driver>
-              <method>getBlankPackage</method>
-            </component>
-            <!-- Paquete Blanco linea -->
-            <component>
-              <driver id="date">common.gui.components.GenericData</driver>
-              <method>getBlankPackage</method>
-            </component>
-            <!-- Paquete Blanco linea -->
-            <component>
-              <driver id="date">common.gui.components.GenericData</driver>
-              <method>getBlankPackage</method>
-            </component>
-            <!-- TRM -->
-            <component>
-              <driver id="trm">client.gui.components.TableDataFields</driver>
+              <driver id="cantidades">client.gui.components.TableDataFields</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Total US$ -->
-            <component>
-              <driver id="totalpus">common.gui.components.GenericData</driver>
-              <method>getPrintPackage</method>
-            </component>
-            <!-- Paquete Blanco linea -->
+            14<!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-            <!-- Paquete Blanco linea -->
-            <component>
-              <driver id="date">common.gui.components.GenericData</driver>
-              <method>getBlankPackage</method>
-            </component>
-            <!-- Tercero Post-->
+            15<!-- Tercero -->
             <component>
               <driver>this</driver>
               <method>generateConcept</method>
@@ -741,48 +706,46 @@
                 </subarg>
               </parameters>
             </component>
-            <!-- Direccion Tercero Post-->
-            <component>
-              <driver>this</driver>
-              <method>generateConcept</method>
-              <parameters>
-                <subarg>
-                  <arg attribute="importValue">nitcc</arg>
-                </subarg>
-              </parameters>
-            </component>
-            <!-- Direccion Tercero Post-->
-            <component>
-              <driver>this</driver>
-              <method>generateConcept</method>
-              <parameters>
-                <subarg>
-                  <arg attribute="importValue">direccion</arg>
-                </subarg>
-              </parameters>
-            </component>
-            <!-- Paquete Blanco linea -->
+            15a<!-- Paquete Blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
-            </component>
-            <!-- Dias de credito -->
+            </component>            
+            16<!-- Dias de credito -->
             <component>
               <driver id="dias_credito">common.gui.components.GenericData</driver>
               <method>getPrintPackage</method>
             </component>
-            <!-- Paquete Blanco linea -->
+            17<!-- Vencimiento -->
+            <component>
+              <driver id="vencimiento">common.gui.components.GenericData</driver>
+              <method>getPrintPackage</method>
+            </component>
+            18<!-- Paquete blanco linea -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-
-            <!-- Paquete Blanco Resoulcion y pie de pagina -->
+            19<!-- TRM -->
+            <component>
+              <driver id="trm">client.gui.components.TableDataFields</driver>
+              <method>getPrintPackage</method>
+            </component>
+            20<!-- Total US$ -->
+            <component>
+              <driver id="totalpus">common.gui.components.GenericData</driver>
+              <method>getPrintPackage</method>
+            </component>
+            21<!-- Paquete Blanco linea -->
+            <component>
+              <driver id="date">common.gui.components.GenericData</driver>
+              <method>getBlankPackage</method>
+            </component>            
+            22<!-- Paquete blanco pie de pagina -->
             <component>
               <driver id="date">common.gui.components.GenericData</driver>
               <method>getBlankPackage</method>
             </component>
-
             <!--  limpiando y cerrando 
               <component>
               <driver>this</driver>
@@ -853,6 +816,7 @@
               </parameters>
               </component> -->
           </action>
+          
         </object>
         <object>
           <name>SALIR</name>
@@ -894,6 +858,44 @@
     
   </preferences>
 
+<component>
+    <driver id="cantidades">client.gui.components.TableDataFields</driver>
+    <parameters>
+      <arg attribute="Panel">false</arg>
+      <arg attribute="linkTable">productos</arg>
+      <subarg>
+        <arg attribute="font">Dialog,1,24</arg>
+        <arg attribute="format">NUMERIC</arg>
+        <arg attribute="size">10</arg>
+        <arg attribute="maxlength">20</arg>
+        <arg attribute="clean">true</arg>
+        <arg attribute="printable">true</arg>
+        <arg attribute="enabled">false</arg>
+        <arg attribute="alignment">RIGHT</arg>
+        <arg attribute="format">NUMERIC</arg>
+        <arg attribute="totalCol">d</arg>
+      </subarg>
+    </parameters>
+  </component>
+
+<component locate="East">
+  <driver id="vencimiento">common.gui.components.GenericData</driver>
+  <parameters>                    
+    <arg attribute="panel">true</arg>
+    <subarg>
+      <arg attribute="font">Dialog,0,14</arg>
+      <arg attribute="label">DEFEAT</arg>
+      <arg attribute="format">TEXT</arg>
+      <arg attribute="size">10</arg>
+      <arg attribute="maxlength">50</arg>
+      <arg attribute="enabled">false</arg>
+      <arg attribute="clean">true</arg>
+      <arg attribute="calculateDate">fechadoc+dias_credito</arg>
+      <arg attribute="dateFormat">yyyy-MM-dd</arg>
+      <arg attribute="printable">true</arg>
+    </subarg>
+  </parameters>
+</component>
 
 <component>
           <driver id="idbodegas">common.gui.components.GenericData</driver>
@@ -1237,6 +1239,7 @@
                   <arg attribute="return">false</arg>
                   <arg attribute="clean">false</arg>
                   <arg attribute="systemDate">yyyy-MM-dd</arg>
+                  <arg attribute="exportValue">fechadoc</arg>
                   <arg attribute="printable">true</arg>
                 </subarg>
               </parameters>
@@ -1256,7 +1259,6 @@
                   <arg attribute="background">0,0,0</arg>
                   <arg attribute="alignment">RIGHT</arg>
                   <arg attribute="idAutoDocument">codigo_tipo</arg>
-                  <!-- <arg attribute="idDocument">SP</arg> -->
                 </subarg>
               </parameters>
             </component>

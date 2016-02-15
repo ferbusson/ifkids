@@ -132,7 +132,7 @@
 
    17 <!-- Vencimiento -->
    <package validate="true">
-      <field row="last"  textLine="VENCIMIENTO" fontName="Dialog" fontSize="12" fontStyle="0" rowAcum="15" textCol="13"  col="140"  type="STRING"/>
+      <field row="last"  textLine="VENCIMIENTO" fontName="Dialog" fontSize="10" fontStyle="0" rowAcum="15" textCol="13"  col="140"  type="STRING"/>
    </package>
    18 <!-- Linea -->
    <package>
