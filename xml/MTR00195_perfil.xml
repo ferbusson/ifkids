@@ -1,0 +1,167 @@
+<FORM>
+  <preferences>
+    <size width="570" height="320" />
+    <name>Asignar Usuario a Sucursal</name>
+    <icon>/icons/ico_admin_activos.png</icon>
+    <iconificable />
+    <resizable />
+    <closable />
+  </preferences>
+  <!-- *1 Componentes Ocultos -->
+  <component>
+    <driver id="sucflag">client.gui.components.EmakuSearchField</driver>
+    <parameters>
+      <arg attribute="keySQL">MTSEL0672</arg>
+      <arg attribute="driverEvent" id="sucursal">client.gui.components.EmakuSearchField</arg>
+      <arg attribute="minCharacters">6</arg>
+      <arg attribute="size">25</arg>
+      <arg attribute="maxlength">40</arg>
+      <arg attribute="nullValue">true</arg>
+      <arg attribute="exportValue">sucflag</arg>
+      <arg attribute="format">TEXT</arg>
+      <arg attribute="sqlCombo">MTSEL0664</arg>
+      <arg attribute="blankArgs">false</arg>
+      <arg attribute="keyDataSearch">sucflag</arg>
+      <arg attribute="repeatData">1</arg>
+      <arg attribute="noDataBeep">true</arg>
+      <arg attribute="noDataMessage">No se encontro registros</arg>
+      <arg attribute="selectedIndex">1</arg>
+      <arg attribute="enabled">true</arg>
+      <arg attribute="clean">true</arg>
+    </parameters>
+  </component>  
+  <!-- *1 -->
+  <panel locate="Center" type="BorderLayout" align="CENTER">
+    <panel locate="North" type="BorderLayout" align="CENTER">
+      <component locate="North">
+        <driver>common.gui.components.XMLLabel</driver>
+        <parameters>
+          <arg attribute="text">Sucursal</arg>
+          <arg attribute="alignment">LEFT</arg>
+        </parameters>
+      </component>
+      <component locate = "Center">
+        <driver id="sucursal">client.gui.components.EmakuSearchField</driver>
+        <parameters>
+          <arg attribute="minCharacters">6</arg>
+          <arg attribute="size">25</arg>
+          <arg attribute="maxlength">40</arg>
+          <arg attribute="nullValue">true</arg>
+          <arg attribute="exportValue">_nomsuc</arg>
+          <arg attribute="format">TEXT</arg>
+          <arg attribute="sqlCombo">MTSEL0664</arg>
+          <arg attribute="blankArgs">false</arg>
+          <arg attribute="keyDataSearch">searchProd</arg>
+          <arg attribute="repeatData">1</arg>
+          <arg attribute="noDataBeep">true</arg>
+          <arg attribute="noDataMessage">No se encontro registros</arg>
+          <arg attribute="selectedIndex">1</arg>
+          <arg attribute="enabled">true</arg>
+          <arg attribute="clean">true</arg>            
+          <arg attribute="sqlCode">MTSEL0672</arg>
+          <arg attribute="sqlCode">MTSEL0675</arg>            
+        </parameters>
+      </component>
+    </panel>
+    <panel locate="Center" type="BorderLayout" align="LEFT">
+      <component locate="North">
+        <driver>common.gui.components.XMLLabel</driver>
+        <parameters>
+          <arg attribute="text">Usuarios</arg>
+          <arg attribute="alignment">LEFT</arg>
+        </parameters>
+      </component>
+      <component locate="Center">
+        <driver id="usuarios">client.gui.components.TableFindData</driver>
+        <parameters>
+          <arg attribute="rows">25</arg>
+          <arg attribute="protectSelected">true</arg>
+          <arg attribute="totales">f</arg>
+          <arg attribute="importValue">sucflag</arg>
+          <arg attribute="Query">MTSEL0674</arg>
+          <arg attribute="colorBackground">220,251,187</arg>
+          <arg attribute="colorSelected">66,160,255</arg>
+          <arg attribute="font">Dialog,0,12</arg>
+          <arg attribute="keySQL">MTSEL0675</arg>
+          <arg attribute="driverEvent" id="sucursal">client.gui.components.EmakuSearchField</arg>
+          <subarg><!-- A0 -->
+            <arg attribute="name">Usuario</arg>
+            <arg attribute="length">100</arg>
+            <arg attribute="type">DATASEARCH</arg>
+            <arg attribute="sqlCombo">MTSEL0673</arg>
+            <arg attribute="keyDataSearch">searchProd</arg>
+            <arg attribute="repeatData">1</arg>
+            <arg attribute="valideUnique">true</arg>
+            <arg attribute="noDataBeep">true</arg>
+            <arg attribute="noDataMessage">No se encontro registros</arg>
+            <arg attribute="selectedIndex">1</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="clean">true</arg>
+          </subarg>
+          <subarg><!-- b 1 -->
+            <arg attribute="name">Identificacion</arg>
+            <arg attribute="length">100</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="queryCol">0</arg>              
+          </subarg>
+          <subarg><!-- b 1 -->
+            <arg attribute="name">Nombre</arg>
+            <arg attribute="length">340</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="queryCol">1</arg>
+          </subarg>
+          <subarg><!-- b 1 -->
+            <arg attribute="name">id</arg>
+            <arg attribute="length">0</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="queryCol">2</arg>
+            <arg attribute="returnCol">0</arg>
+          </subarg>
+          <subarg><!-- c 2 -->
+            <arg attribute="name">id_administracion_sucursal</arg>
+            <arg attribute="length">0</arg>
+            <arg attribute="type">INTEGER</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="returnCol">1</arg>
+            <arg attribute="queryCol">3</arg>
+          </subarg>
+        </parameters>
+      </component>
+    </panel>
+  </panel>
+  <component locate="South">
+    <driver>common.gui.components.ButtonsPanel</driver>
+    <parameters>
+      <arg>SAVEAS</arg>
+      <arg>NEW</arg>
+      <arg>EXIT</arg>
+    </parameters>
+    <events>
+      <object>
+        <name>SAVEAS</name>        
+        <component>
+          <driver id="sucflag">client.gui.components.EmakuSearchField</driver>
+          <method>getPackage</method>
+        </component>        
+        <component>
+          <driver id="usuarios">client.gui.components.TableFindData</driver>
+          <method>getPackage</method>
+        </component>        
+      </object>
+      <object>
+        <name>NEW</name>
+        <component>
+          <driver id="sucursal">client.gui.components.EmakuSearchField</driver>
+          <method>clean</method>
+        </component>  
+        <component>
+          <driver id="usuarios">client.gui.components.TableFindData</driver>
+          <method>clean</method>
+        </component>          
+      </object>
+    </events>
+  </component>
+</FORM>
